@@ -12,12 +12,15 @@ class Hello extends Component {
           id="userName"
           type="text"
           placeholder="tutaj wpisz jak masz na imię"
+          onChange={this.props.change}
+          value={this.props.user}
         />
         <input
           id="userNameButton"
           class="button"
           type="button"
           value="Gotowe!"
+          onClick={this.props.buttonChange}
         />
         <h5>Podaj nam swoje imię, a my zorganizujemy</h5>
         <h5>dla Ciebie naszą aplikację:)</h5>
