@@ -19,6 +19,9 @@ class Main extends Component {
   handleButton = () => {
     const { user } = this.state;
     localStorage.setItem("user", user);
+    this.setState({
+      user: ""
+    });
   };
 
   user;
