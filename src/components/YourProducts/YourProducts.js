@@ -2,12 +2,11 @@ import React, { Component } from "react";
 import "./YourProducts.scss";
 import NewProduct from "../NewProduct/NewProduct";
 import Product from "../Product/Product";
+import NewShoplist from "../NewShoplist/NewShoplist";
 class YourProducts extends Component {
   state = {
     newProduct: "",
     select: "",
-    quantity: "",
-    typeOfQuantity: "",
     products: []
   };
 
@@ -164,28 +163,21 @@ class YourProducts extends Component {
     });
   };
 
-  handleChangeQuantity = event => {
-    this.setState({
-      quantity: event.target.value
-    });
-  };
+  handleButtonShoplist = (name, category, quantity, typeOfQuantity) => {
+    const arr = [...this.state.products];
 
-  handleSelectQuantity = event => {
-    this.setState({
-      typeOfQuantity: event.target.value
+    arr.push({
+      product: name,
+      category: category,
+      quantity: quantity,
+      typeOfQuantity: typeOfQuantity
     });
-  };
 
-  handleButtonList = () => {
     this.setState({
-      products: {
-        quantity: this.state.quantity,
-        select: this.state.select,
-        product: this.props.name,
-        category: this.props.category
-      }
+      products: arr
     });
-    console.log(this.state.products);
+
+    console.log(arr);
   };
 
   render() {
@@ -210,13 +202,10 @@ class YourProducts extends Component {
               <tbody>
                 {JSON.parse(localStorage.getItem("fruitsAndVegs")).map(item => (
                   <Product
-                    quantity={this.state.quantity}
-                    typeOfQuantity={this.state.typeOfQuantity}
-                    handleButton={this.handleButtonList}
-                    selectQuantity={this.handleSelectQuantity}
-                    changeQuantity={this.handleChangeQuantity}
+                    handleButton={this.handleButtonShoplist}
                     category="fruitsAndVegs"
                     name={item}
+                    key={item}
                   />
                 ))}
               </tbody>
@@ -229,7 +218,12 @@ class YourProducts extends Component {
             <table>
               <tbody>
                 {JSON.parse(localStorage.getItem("looseProducts")).map(item => (
-                  <Product name={item} />
+                  <Product
+                    handleButton={this.handleButtonShoplist}
+                    category="looseProducts"
+                    name={item}
+                    key={item}
+                  />
                 ))}
               </tbody>
             </table>
@@ -241,7 +235,12 @@ class YourProducts extends Component {
             <table>
               <tbody>
                 {JSON.parse(localStorage.getItem("forCakes")).map(item => (
-                  <Product name={item} />
+                  <Product
+                    handleButton={this.handleButtonShoplist}
+                    category="forCakes"
+                    name={item}
+                    key={item}
+                  />
                 ))}
               </tbody>
             </table>
@@ -253,7 +252,12 @@ class YourProducts extends Component {
             <table>
               <tbody>
                 {JSON.parse(localStorage.getItem("meat")).map(item => (
-                  <Product name={item} />
+                  <Product
+                    handleButton={this.handleButtonShoplist}
+                    category="meat"
+                    name={item}
+                    key={item}
+                  />
                 ))}
               </tbody>
             </table>
@@ -265,7 +269,12 @@ class YourProducts extends Component {
             <table>
               <tbody>
                 {JSON.parse(localStorage.getItem("cannedGoods")).map(item => (
-                  <Product name={item} />
+                  <Product
+                    handleButton={this.handleButtonShoplist}
+                    category="cannedGoods"
+                    name={item}
+                    key={item}
+                  />
                 ))}
               </tbody>
             </table>
@@ -277,7 +286,12 @@ class YourProducts extends Component {
             <table>
               <tbody>
                 {JSON.parse(localStorage.getItem("sweets")).map(item => (
-                  <Product name={item} />
+                  <Product
+                    handleButton={this.handleButtonShoplist}
+                    category="sweets"
+                    name={item}
+                    key={item}
+                  />
                 ))}
               </tbody>
             </table>
@@ -289,7 +303,12 @@ class YourProducts extends Component {
             <table>
               <tbody>
                 {JSON.parse(localStorage.getItem("frozen")).map(item => (
-                  <Product name={item} />
+                  <Product
+                    handleButton={this.handleButtonShoplist}
+                    category="frozen"
+                    name={item}
+                    key={item}
+                  />
                 ))}
               </tbody>
             </table>
@@ -301,7 +320,12 @@ class YourProducts extends Component {
             <table>
               <tbody>
                 {JSON.parse(localStorage.getItem("bread")).map(item => (
-                  <Product name={item} />
+                  <Product
+                    handleButton={this.handleButtonShoplist}
+                    category="bread"
+                    name={item}
+                    key={item}
+                  />
                 ))}
               </tbody>
             </table>
@@ -313,7 +337,12 @@ class YourProducts extends Component {
             <table>
               <tbody>
                 {JSON.parse(localStorage.getItem("diary")).map(item => (
-                  <Product name={item} />
+                  <Product
+                    handleButton={this.handleButtonShoplist}
+                    category="diary"
+                    name={item}
+                    key={item}
+                  />
                 ))}
               </tbody>
             </table>
@@ -325,7 +354,12 @@ class YourProducts extends Component {
             <table>
               <tbody>
                 {JSON.parse(localStorage.getItem("spices")).map(item => (
-                  <Product name={item} />
+                  <Product
+                    handleButton={this.handleButtonShoplist}
+                    category="spices"
+                    name={item}
+                    key={item}
+                  />
                 ))}
               </tbody>
             </table>
@@ -337,7 +371,12 @@ class YourProducts extends Component {
             <table>
               <tbody>
                 {JSON.parse(localStorage.getItem("beverages")).map(item => (
-                  <Product name={item} />
+                  <Product
+                    handleButton={this.handleButtonShoplist}
+                    category="beverages"
+                    name={item}
+                    key={item}
+                  />
                 ))}
               </tbody>
             </table>
@@ -349,7 +388,12 @@ class YourProducts extends Component {
             <table>
               <tbody>
                 {JSON.parse(localStorage.getItem("fats")).map(item => (
-                  <Product name={item} />
+                  <Product
+                    handleButton={this.handleButtonShoplist}
+                    category="fats"
+                    name={item}
+                    key={item}
+                  />
                 ))}
               </tbody>
             </table>
@@ -361,7 +405,12 @@ class YourProducts extends Component {
             <table>
               <tbody>
                 {JSON.parse(localStorage.getItem("cleaningStuff")).map(item => (
-                  <Product name={item} />
+                  <Product
+                    handleButton={this.handleButtonShoplist}
+                    category="cleaningStuff"
+                    name={item}
+                    key={item}
+                  />
                 ))}
               </tbody>
             </table>
@@ -373,7 +422,12 @@ class YourProducts extends Component {
             <table>
               <tbody>
                 {JSON.parse(localStorage.getItem("forHome")).map(item => (
-                  <Product name={item} />
+                  <Product
+                    handleButton={this.handleButtonShoplist}
+                    category="forHome"
+                    name={item}
+                    key={item}
+                  />
                 ))}
               </tbody>
             </table>
@@ -385,7 +439,12 @@ class YourProducts extends Component {
             <table>
               <tbody>
                 {JSON.parse(localStorage.getItem("cosmetics")).map(item => (
-                  <Product name={item} />
+                  <Product
+                    handleButton={this.handleButtonShoplist}
+                    category="cosmetics"
+                    name={item}
+                    key={item}
+                  />
                 ))}
               </tbody>
             </table>
@@ -397,12 +456,18 @@ class YourProducts extends Component {
             <table>
               <tbody>
                 {JSON.parse(localStorage.getItem("other")).map(item => (
-                  <Product name={item} />
+                  <Product
+                    handleButton={this.handleButtonShoplist}
+                    category="other"
+                    name={item}
+                    key={item}
+                  />
                 ))}
               </tbody>
             </table>
           </>
         ) : null}
+        <NewShoplist products={this.state.products} />
       </div>
     );
   }
