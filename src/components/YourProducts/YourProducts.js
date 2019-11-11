@@ -1,11 +1,14 @@
 import React, { Component } from "react";
 import "./YourProducts.scss";
 import NewProduct from "../NewProduct/NewProduct";
-
+import Product from "../Product/Product";
 class YourProducts extends Component {
   state = {
     newProduct: "",
-    select: ""
+    select: "",
+    quantity: "",
+    typeOfQuantity: "",
+    products: []
   };
 
   handleChange = event => {
@@ -161,23 +164,31 @@ class YourProducts extends Component {
     });
   };
 
+  handleChangeQuantity = event => {
+    this.setState({
+      quantity: event.target.value
+    });
+  };
+
+  handleSelectQuantity = event => {
+    this.setState({
+      typeOfQuantity: event.target.value
+    });
+  };
+
+  handleButtonList = () => {
+    this.setState({
+      products: {
+        quantity: this.state.quantity,
+        select: this.state.select,
+        product: this.props.name,
+        category: this.props.category
+      }
+    });
+    console.log(this.state.products);
+  };
+
   render() {
-    const component = (
-      <>
-        <td>
-          <input type="number" />
-        </td>
-        <td>
-          <select>
-            <option>items</option>
-            <option>weight [kg]</option>
-          </select>
-        </td>
-        <td>
-          <button>Add to your shoplist</button>
-        </td>
-      </>
-    );
     return (
       <div className="col-2 widget-yourProducts">
         <div className="cross">
@@ -197,14 +208,17 @@ class YourProducts extends Component {
             <h2>Fruits and vegetables</h2>
             <table>
               <tbody>
-                {JSON.parse(localStorage.getItem("fruitsAndVegs")).map(
-                  (item, index) => (
-                    <tr key={index}>
-                      <td>{item}</td>
-                      {component}
-                    </tr>
-                  )
-                )}
+                {JSON.parse(localStorage.getItem("fruitsAndVegs")).map(item => (
+                  <Product
+                    quantity={this.state.quantity}
+                    typeOfQuantity={this.state.typeOfQuantity}
+                    handleButton={this.handleButtonList}
+                    selectQuantity={this.handleSelectQuantity}
+                    changeQuantity={this.handleChangeQuantity}
+                    category="fruitsAndVegs"
+                    name={item}
+                  />
+                ))}
               </tbody>
             </table>
           </>
@@ -214,14 +228,9 @@ class YourProducts extends Component {
             <h2>Loose products</h2>
             <table>
               <tbody>
-                {JSON.parse(localStorage.getItem("looseProducts")).map(
-                  (item, index) => (
-                    <tr key={index}>
-                      <td>{item}</td>
-                      {component}
-                    </tr>
-                  )
-                )}
+                {JSON.parse(localStorage.getItem("looseProducts")).map(item => (
+                  <Product name={item} />
+                ))}
               </tbody>
             </table>
           </>
@@ -231,14 +240,9 @@ class YourProducts extends Component {
             <h2>For cakes</h2>
             <table>
               <tbody>
-                {JSON.parse(localStorage.getItem("forCakes")).map(
-                  (item, index) => (
-                    <tr key={index}>
-                      <td>{item}</td>
-                      {component}
-                    </tr>
-                  )
-                )}
+                {JSON.parse(localStorage.getItem("forCakes")).map(item => (
+                  <Product name={item} />
+                ))}
               </tbody>
             </table>
           </>
@@ -248,11 +252,8 @@ class YourProducts extends Component {
             <h2>Meat</h2>
             <table>
               <tbody>
-                {JSON.parse(localStorage.getItem("meat")).map((item, index) => (
-                  <tr key={index}>
-                    <td>{item}</td>
-                    {component}
-                  </tr>
+                {JSON.parse(localStorage.getItem("meat")).map(item => (
+                  <Product name={item} />
                 ))}
               </tbody>
             </table>
@@ -263,14 +264,9 @@ class YourProducts extends Component {
             <h2>Canned goods</h2>
             <table>
               <tbody>
-                {JSON.parse(localStorage.getItem("cannedGoods")).map(
-                  (item, index) => (
-                    <tr key={index}>
-                      <td>{item}</td>
-                      {component}
-                    </tr>
-                  )
-                )}
+                {JSON.parse(localStorage.getItem("cannedGoods")).map(item => (
+                  <Product name={item} />
+                ))}
               </tbody>
             </table>
           </>
@@ -280,14 +276,9 @@ class YourProducts extends Component {
             <h2>Sweets</h2>
             <table>
               <tbody>
-                {JSON.parse(localStorage.getItem("sweets")).map(
-                  (item, index) => (
-                    <tr key={index}>
-                      <td>{item}</td>
-                      {component}
-                    </tr>
-                  )
-                )}
+                {JSON.parse(localStorage.getItem("sweets")).map(item => (
+                  <Product name={item} />
+                ))}
               </tbody>
             </table>
           </>
@@ -297,14 +288,9 @@ class YourProducts extends Component {
             <h2>Frozen</h2>
             <table>
               <tbody>
-                {JSON.parse(localStorage.getItem("frozen")).map(
-                  (item, index) => (
-                    <tr key={index}>
-                      <td>{item}</td>
-                      {component}
-                    </tr>
-                  )
-                )}
+                {JSON.parse(localStorage.getItem("frozen")).map(item => (
+                  <Product name={item} />
+                ))}
               </tbody>
             </table>
           </>
@@ -314,14 +300,9 @@ class YourProducts extends Component {
             <h2>Bread</h2>
             <table>
               <tbody>
-                {JSON.parse(localStorage.getItem("bread")).map(
-                  (item, index) => (
-                    <tr key={index}>
-                      <td>{item}</td>
-                      {component}
-                    </tr>
-                  )
-                )}
+                {JSON.parse(localStorage.getItem("bread")).map(item => (
+                  <Product name={item} />
+                ))}
               </tbody>
             </table>
           </>
@@ -331,14 +312,9 @@ class YourProducts extends Component {
             <h2>Dairy</h2>
             <table>
               <tbody>
-                {JSON.parse(localStorage.getItem("dairy")).map(
-                  (item, index) => (
-                    <tr key={index}>
-                      <td>{item}</td>
-                      {component}
-                    </tr>
-                  )
-                )}
+                {JSON.parse(localStorage.getItem("diary")).map(item => (
+                  <Product name={item} />
+                ))}
               </tbody>
             </table>
           </>
@@ -348,14 +324,9 @@ class YourProducts extends Component {
             <h2>Spices</h2>
             <table>
               <tbody>
-                {JSON.parse(localStorage.getItem("spices")).map(
-                  (item, index) => (
-                    <tr key={index}>
-                      <td>{item}</td>
-                      {component}
-                    </tr>
-                  )
-                )}
+                {JSON.parse(localStorage.getItem("spices")).map(item => (
+                  <Product name={item} />
+                ))}
               </tbody>
             </table>
           </>
@@ -365,14 +336,9 @@ class YourProducts extends Component {
             <h2>Beverages</h2>
             <table>
               <tbody>
-                {JSON.parse(localStorage.getItem("beverages")).map(
-                  (item, index) => (
-                    <tr key={index}>
-                      <td>{item}</td>
-                      {component}
-                    </tr>
-                  )
-                )}
+                {JSON.parse(localStorage.getItem("beverages")).map(item => (
+                  <Product name={item} />
+                ))}
               </tbody>
             </table>
           </>
@@ -382,11 +348,8 @@ class YourProducts extends Component {
             <h2>Fats</h2>
             <table>
               <tbody>
-                {JSON.parse(localStorage.getItem("fats")).map((item, index) => (
-                  <tr key={index}>
-                    <td>{item}</td>
-                    {component}
-                  </tr>
+                {JSON.parse(localStorage.getItem("fats")).map(item => (
+                  <Product name={item} />
                 ))}
               </tbody>
             </table>
@@ -397,14 +360,9 @@ class YourProducts extends Component {
             <h2>Cleaning stuff</h2>
             <table>
               <tbody>
-                {JSON.parse(localStorage.getItem("cleaningStuff")).map(
-                  (item, index) => (
-                    <tr key={index}>
-                      <td>{item}</td>
-                      {component}
-                    </tr>
-                  )
-                )}
+                {JSON.parse(localStorage.getItem("cleaningStuff")).map(item => (
+                  <Product name={item} />
+                ))}
               </tbody>
             </table>
           </>
@@ -414,14 +372,9 @@ class YourProducts extends Component {
             <h2>For home</h2>
             <table>
               <tbody>
-                {JSON.parse(localStorage.getItem("forHome")).map(
-                  (item, index) => (
-                    <tr key={index}>
-                      <td>{item}</td>
-                      {component}
-                    </tr>
-                  )
-                )}
+                {JSON.parse(localStorage.getItem("forHome")).map(item => (
+                  <Product name={item} />
+                ))}
               </tbody>
             </table>
           </>
@@ -431,14 +384,9 @@ class YourProducts extends Component {
             <h2>Cosmetics</h2>
             <table>
               <tbody>
-                {JSON.parse(localStorage.getItem("cosmetics")).map(
-                  (item, index) => (
-                    <tr key={index}>
-                      <td>{item}</td>
-                      {component}
-                    </tr>
-                  )
-                )}
+                {JSON.parse(localStorage.getItem("cosmetics")).map(item => (
+                  <Product name={item} />
+                ))}
               </tbody>
             </table>
           </>
@@ -448,14 +396,9 @@ class YourProducts extends Component {
             <h2>Other</h2>
             <table>
               <tbody>
-                {JSON.parse(localStorage.getItem("other")).map(
-                  (item, index) => (
-                    <tr key={index}>
-                      <td>{item}</td>
-                      {component}
-                    </tr>
-                  )
-                )}
+                {JSON.parse(localStorage.getItem("other")).map(item => (
+                  <Product name={item} />
+                ))}
               </tbody>
             </table>
           </>

@@ -11,6 +11,7 @@ class NewProduct extends Component {
             type="text"
             onChange={this.props.change}
             value={this.props.newProduct}
+            name="newProduct"
           />
         </label>
         <label>
