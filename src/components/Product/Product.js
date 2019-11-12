@@ -61,6 +61,15 @@ class Product extends Component {
             Add to your shoplist
           </button>
         </td>
+        <td>
+          <button
+            onClick={e =>
+              this.props.deleteItem(this.props.category, this.props.name)
+            }
+          >
+            Delete
+          </button>
+        </td>
       </tr>
     );
 

@@ -4,23 +4,23 @@ import "./NewShoplist.scss";
 class NewShoplist extends Component {
   state = {
     shoplist: false,
-    products1: this.props.products
+    products: []
   };
 
   createShoplist = () => {
     this.setState({
-      shoplist: true
+      shoplist: true,
+      products: this.props.products
     });
   };
 
   deleteItem = (event, name) => {
     if (event.target.checked) {
-      let arr = this.props.products;
+      let arr = [...this.state.products];
       const myArray = arr.filter(obj => obj.product !== name);
       this.setState({
-        products1: myArray
+        products: myArray
       });
-      console.log(this.state.products1);
     }
   };
 
@@ -35,7 +35,7 @@ class NewShoplist extends Component {
 
     const newShoplist = (
       <ul>
-        {this.state.products1.map((item, index) => {
+        {this.state.products.map((item, index) => {
           return (
             <li key={index}>
               <input

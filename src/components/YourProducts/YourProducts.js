@@ -3,6 +3,7 @@ import "./YourProducts.scss";
 import NewProduct from "../NewProduct/NewProduct";
 import Product from "../Product/Product";
 import NewShoplist from "../NewShoplist/NewShoplist";
+import YourRecipes from "../YourRecipes/YourRecipes";
 class YourProducts extends Component {
   state = {
     newProduct: "",
@@ -176,8 +177,13 @@ class YourProducts extends Component {
     this.setState({
       products: arr
     });
+  };
 
-    console.log(arr);
+  deleteItem = (category, name) => {
+    let arr = JSON.parse(localStorage.getItem(category));
+    const index = arr.indexOf(name);
+    arr.splice(index, 1);
+    localStorage.setItem(category, JSON.stringify(arr));
   };
 
   render() {
@@ -204,6 +210,7 @@ class YourProducts extends Component {
                   <Product
                     handleButton={this.handleButtonShoplist}
                     category="fruitsAndVegs"
+                    deleteItem={this.deleteItem}
                     name={item}
                     key={item}
                   />
@@ -467,6 +474,7 @@ class YourProducts extends Component {
             </table>
           </>
         ) : null}
+        <YourRecipes />
         <NewShoplist products={this.state.products} />
       </div>
     );
