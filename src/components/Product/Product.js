@@ -63,8 +63,8 @@ class Product extends Component {
         </td>
         <td>
           <button
-            onClick={e =>
-              this.props.deleteItem(this.props.category, this.props.name)
+            onClick={() =>
+              this.props.deleteItem(this.state.category, this.state.name)
             }
           >
             Delete

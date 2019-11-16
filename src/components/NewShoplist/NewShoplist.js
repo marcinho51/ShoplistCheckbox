@@ -14,7 +14,7 @@ class NewShoplist extends Component {
     });
   };
 
-  deleteItem = (event, name) => {
+  deleteItemFromShoplist = (event, name) => {
     if (event.target.checked) {
       let arr = [...this.state.products];
       const myArray = arr.filter(obj => obj.product !== name);
@@ -39,7 +39,9 @@ class NewShoplist extends Component {
           return (
             <li key={index}>
               <input
-                onChange={event => this.deleteItem(event, item.product)}
+                onChange={event =>
+                  this.deleteItemFromShoplist(event, item.product)
+                }
                 type="checkbox"
               />
               {item.product} {item.quantity} {item.typeOfQuantity}

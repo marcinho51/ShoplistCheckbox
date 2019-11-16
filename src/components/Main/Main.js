@@ -6,7 +6,8 @@ import YourProducts from "../YourProducts/YourProducts";
 
 class Main extends Component {
   state = {
-    user: ""
+    user: "",
+    products: []
   };
 
   handleChange = event => {
@@ -22,8 +23,6 @@ class Main extends Component {
       user: ""
     });
   };
-
-  user;
 
   render() {
     const userFromLocalStorage = JSON.stringify(localStorage.getItem("user"));

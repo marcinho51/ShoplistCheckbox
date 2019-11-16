@@ -4,6 +4,7 @@ import NewProduct from "../NewProduct/NewProduct";
 import Product from "../Product/Product";
 import NewShoplist from "../NewShoplist/NewShoplist";
 import YourRecipes from "../YourRecipes/YourRecipes";
+
 class YourProducts extends Component {
   state = {
     newProduct: "",
@@ -184,6 +185,43 @@ class YourProducts extends Component {
     const index = arr.indexOf(name);
     arr.splice(index, 1);
     localStorage.setItem(category, JSON.stringify(arr));
+
+    if (localStorage.getItem(category).length === 2) {
+      localStorage.removeItem(category);
+    }
+  };
+
+  addRecipeToShoplist = (
+    ingredient1,
+    ingredient2,
+    ingredient3,
+    ingredient4,
+    ingredient5
+  ) => {
+    let arr = this.state.products;
+    if (ingredient1.product !== "") {
+      arr.push(ingredient1);
+    }
+
+    if (ingredient2.product) {
+      arr.push(ingredient2);
+    }
+
+    if (ingredient3.product) {
+      arr.push(ingredient3);
+    }
+
+    if (ingredient4.product) {
+      arr.push(ingredient4);
+    }
+
+    if (ingredient5.product) {
+      arr.push(ingredient5);
+    }
+
+    this.setState({
+      products: arr
+    });
   };
 
   render() {
@@ -200,7 +238,7 @@ class YourProducts extends Component {
           select={this.state.select}
           handleButton={this.handleButton}
         />
-        <h1>Twoje produkty</h1>
+        <h1>Your products</h1>
         {localStorage.getItem("fruitsAndVegs") ? (
           <>
             <h2>Fruits and vegetables</h2>
@@ -228,6 +266,7 @@ class YourProducts extends Component {
                   <Product
                     handleButton={this.handleButtonShoplist}
                     category="looseProducts"
+                    deleteItem={this.deleteItem}
                     name={item}
                     key={item}
                   />
@@ -245,6 +284,7 @@ class YourProducts extends Component {
                   <Product
                     handleButton={this.handleButtonShoplist}
                     category="forCakes"
+                    deleteItem={this.deleteItem}
                     name={item}
                     key={item}
                   />
@@ -262,6 +302,7 @@ class YourProducts extends Component {
                   <Product
                     handleButton={this.handleButtonShoplist}
                     category="meat"
+                    deleteItem={this.deleteItem}
                     name={item}
                     key={item}
                   />
@@ -279,6 +320,7 @@ class YourProducts extends Component {
                   <Product
                     handleButton={this.handleButtonShoplist}
                     category="cannedGoods"
+                    deleteItem={this.deleteItem}
                     name={item}
                     key={item}
                   />
@@ -296,6 +338,7 @@ class YourProducts extends Component {
                   <Product
                     handleButton={this.handleButtonShoplist}
                     category="sweets"
+                    deleteItem={this.deleteItem}
                     name={item}
                     key={item}
                   />
@@ -313,6 +356,7 @@ class YourProducts extends Component {
                   <Product
                     handleButton={this.handleButtonShoplist}
                     category="frozen"
+                    deleteItem={this.deleteItem}
                     name={item}
                     key={item}
                   />
@@ -330,6 +374,7 @@ class YourProducts extends Component {
                   <Product
                     handleButton={this.handleButtonShoplist}
                     category="bread"
+                    deleteItem={this.deleteItem}
                     name={item}
                     key={item}
                   />
@@ -347,6 +392,7 @@ class YourProducts extends Component {
                   <Product
                     handleButton={this.handleButtonShoplist}
                     category="diary"
+                    deleteItem={this.deleteItem}
                     name={item}
                     key={item}
                   />
@@ -364,6 +410,7 @@ class YourProducts extends Component {
                   <Product
                     handleButton={this.handleButtonShoplist}
                     category="spices"
+                    deleteItem={this.deleteItem}
                     name={item}
                     key={item}
                   />
@@ -381,6 +428,7 @@ class YourProducts extends Component {
                   <Product
                     handleButton={this.handleButtonShoplist}
                     category="beverages"
+                    deleteItem={this.deleteItem}
                     name={item}
                     key={item}
                   />
@@ -398,6 +446,7 @@ class YourProducts extends Component {
                   <Product
                     handleButton={this.handleButtonShoplist}
                     category="fats"
+                    deleteItem={this.deleteItem}
                     name={item}
                     key={item}
                   />
@@ -415,6 +464,7 @@ class YourProducts extends Component {
                   <Product
                     handleButton={this.handleButtonShoplist}
                     category="cleaningStuff"
+                    deleteItem={this.deleteItem}
                     name={item}
                     key={item}
                   />
@@ -432,6 +482,7 @@ class YourProducts extends Component {
                   <Product
                     handleButton={this.handleButtonShoplist}
                     category="forHome"
+                    deleteItem={this.deleteItem}
                     name={item}
                     key={item}
                   />
@@ -449,6 +500,7 @@ class YourProducts extends Component {
                   <Product
                     handleButton={this.handleButtonShoplist}
                     category="cosmetics"
+                    deleteItem={this.deleteItem}
                     name={item}
                     key={item}
                   />
@@ -466,6 +518,7 @@ class YourProducts extends Component {
                   <Product
                     handleButton={this.handleButtonShoplist}
                     category="other"
+                    deleteItem={this.deleteItem}
                     name={item}
                     key={item}
                   />
@@ -474,7 +527,7 @@ class YourProducts extends Component {
             </table>
           </>
         ) : null}
-        <YourRecipes />
+        <YourRecipes addRecipeToShoplist={this.addRecipeToShoplist} />
         <NewShoplist products={this.state.products} />
       </div>
     );
