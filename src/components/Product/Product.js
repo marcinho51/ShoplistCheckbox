@@ -81,12 +81,17 @@ class Product extends Component {
         <td>
           <button
             onClick={e =>
-              this.setState(state => ({
-                input: !state.input
-              }))
+              this.setState(
+                state => ({
+                  input: !state.input
+                }),
+                () => {
+                  this.props.removeProductFromShoplist(this.state.name);
+                }
+              )
             }
           >
-            Edit
+            Remove from your shoplist
           </button>
         </td>
       </tr>

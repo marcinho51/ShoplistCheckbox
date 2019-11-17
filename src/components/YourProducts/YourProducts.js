@@ -24,6 +24,8 @@ class YourProducts extends Component {
     });
   };
 
+  arrayOfProducts = [];
+
   handleButton = () => {
     if (this.state.select === "sweets") {
       let sweets = [];
@@ -159,9 +161,20 @@ class YourProducts extends Component {
       other.push(this.state.newProduct);
       localStorage.setItem("other", JSON.stringify(other));
     }
+
+    this.arrayOfProducts.push(this.state.newProduct);
+
+    localStorage.setItem(
+      "productsFromLocalStorage",
+      JSON.stringify(this.arrayOfProducts)
+    );
+
     this.setState({
       newProduct: "",
-      select: ""
+      select: "",
+      productsFromLocalStorage: JSON.parse(
+        localStorage.getItem("productsFromLocalStorage")
+      )
     });
   };
 
@@ -189,6 +202,15 @@ class YourProducts extends Component {
     if (localStorage.getItem(category).length === 2) {
       localStorage.removeItem(category);
     }
+
+    let arr2 = JSON.parse(localStorage.getItem("productsFromLocalStorage"));
+    const index2 = arr2.indexOf(name);
+    arr2.splice(index2, 1);
+    this.setState({
+      productsFromLocalStorage: arr2
+    });
+
+    localStorage.setItem("productsFromLocalStorage", JSON.stringify(arr2));
   };
 
   addRecipeToShoplist = (
@@ -224,6 +246,16 @@ class YourProducts extends Component {
     });
   };
 
+  removeProductFromShoplist = product => {
+    let arr = this.state.products.filter(item => {
+      return item.product !== product;
+    });
+
+    this.setState({
+      products: arr
+    });
+  };
+
   render() {
     return (
       <div className="col-2 widget-yourProducts">
@@ -251,6 +283,7 @@ class YourProducts extends Component {
                     deleteItem={this.deleteItem}
                     name={item}
                     key={item}
+                    removeProductFromShoplist={this.removeProductFromShoplist}
                   />
                 ))}
               </tbody>
@@ -269,6 +302,7 @@ class YourProducts extends Component {
                     deleteItem={this.deleteItem}
                     name={item}
                     key={item}
+                    removeProductFromShoplist={this.removeProductFromShoplist}
                   />
                 ))}
               </tbody>
@@ -287,6 +321,7 @@ class YourProducts extends Component {
                     deleteItem={this.deleteItem}
                     name={item}
                     key={item}
+                    removeProductFromShoplist={this.removeProductFromShoplist}
                   />
                 ))}
               </tbody>
@@ -305,6 +340,7 @@ class YourProducts extends Component {
                     deleteItem={this.deleteItem}
                     name={item}
                     key={item}
+                    removeProductFromShoplist={this.removeProductFromShoplist}
                   />
                 ))}
               </tbody>
@@ -323,6 +359,7 @@ class YourProducts extends Component {
                     deleteItem={this.deleteItem}
                     name={item}
                     key={item}
+                    removeProductFromShoplist={this.removeProductFromShoplist}
                   />
                 ))}
               </tbody>
@@ -341,6 +378,7 @@ class YourProducts extends Component {
                     deleteItem={this.deleteItem}
                     name={item}
                     key={item}
+                    removeProductFromShoplist={this.removeProductFromShoplist}
                   />
                 ))}
               </tbody>
@@ -359,6 +397,7 @@ class YourProducts extends Component {
                     deleteItem={this.deleteItem}
                     name={item}
                     key={item}
+                    removeProductFromShoplist={this.removeProductFromShoplist}
                   />
                 ))}
               </tbody>
@@ -377,24 +416,26 @@ class YourProducts extends Component {
                     deleteItem={this.deleteItem}
                     name={item}
                     key={item}
+                    removeProductFromShoplist={this.removeProductFromShoplist}
                   />
                 ))}
               </tbody>
             </table>
           </>
         ) : null}
-        {localStorage.getItem("diary") ? (
+        {localStorage.getItem("dairy") ? (
           <>
             <h2>Dairy</h2>
             <table>
               <tbody>
-                {JSON.parse(localStorage.getItem("diary")).map(item => (
+                {JSON.parse(localStorage.getItem("dairy")).map(item => (
                   <Product
                     handleButton={this.handleButtonShoplist}
-                    category="diary"
+                    category="dairy"
                     deleteItem={this.deleteItem}
                     name={item}
                     key={item}
+                    removeProductFromShoplist={this.removeProductFromShoplist}
                   />
                 ))}
               </tbody>
@@ -413,6 +454,7 @@ class YourProducts extends Component {
                     deleteItem={this.deleteItem}
                     name={item}
                     key={item}
+                    removeProductFromShoplist={this.removeProductFromShoplist}
                   />
                 ))}
               </tbody>
@@ -431,6 +473,7 @@ class YourProducts extends Component {
                     deleteItem={this.deleteItem}
                     name={item}
                     key={item}
+                    removeProductFromShoplist={this.removeProductFromShoplist}
                   />
                 ))}
               </tbody>
@@ -449,6 +492,7 @@ class YourProducts extends Component {
                     deleteItem={this.deleteItem}
                     name={item}
                     key={item}
+                    removeProductFromShoplist={this.removeProductFromShoplist}
                   />
                 ))}
               </tbody>
@@ -467,6 +511,7 @@ class YourProducts extends Component {
                     deleteItem={this.deleteItem}
                     name={item}
                     key={item}
+                    removeProductFromShoplist={this.removeProductFromShoplist}
                   />
                 ))}
               </tbody>
@@ -485,6 +530,7 @@ class YourProducts extends Component {
                     deleteItem={this.deleteItem}
                     name={item}
                     key={item}
+                    removeProductFromShoplist={this.removeProductFromShoplist}
                   />
                 ))}
               </tbody>
@@ -503,6 +549,7 @@ class YourProducts extends Component {
                     deleteItem={this.deleteItem}
                     name={item}
                     key={item}
+                    removeProductFromShoplist={this.removeProductFromShoplist}
                   />
                 ))}
               </tbody>
@@ -521,6 +568,7 @@ class YourProducts extends Component {
                     deleteItem={this.deleteItem}
                     name={item}
                     key={item}
+                    removeProductFromShoplist={this.removeProductFromShoplist}
                   />
                 ))}
               </tbody>
