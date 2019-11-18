@@ -178,21 +178,6 @@ class YourProducts extends Component {
     });
   };
 
-  handleButtonShoplist = (name, category, quantity, typeOfQuantity) => {
-    const arr = [...this.state.products];
-
-    arr.push({
-      product: name,
-      category: category,
-      quantity: quantity,
-      typeOfQuantity: typeOfQuantity
-    });
-
-    this.setState({
-      products: arr
-    });
-  };
-
   deleteItem = (category, name) => {
     let arr = JSON.parse(localStorage.getItem(category));
     const index = arr.indexOf(name);
@@ -213,6 +198,58 @@ class YourProducts extends Component {
     localStorage.setItem("productsFromLocalStorage", JSON.stringify(arr2));
   };
 
+  handleButtonShoplist = (name, category, quantity, typeOfQuantity) => {
+    let listOfProducts = [...this.state.products];
+
+    let repeat = listOfProducts
+      .map(item => item.product + item.typeOfQuantity)
+      .indexOf(name + typeOfQuantity);
+
+    console.log(repeat);
+
+    if (repeat === -1) {
+      listOfProducts.push({
+        product: name,
+        category: category,
+        quantity: quantity,
+        typeOfQuantity: typeOfQuantity
+      });
+    } else if (repeat !== -1) {
+      listOfProducts.push({
+        product: name,
+        category: category,
+        quantity: quantity,
+        typeOfQuantity: typeOfQuantity
+      });
+
+      let filtered = listOfProducts.filter(
+        item => item.product === name && item.typeOfQuantity === typeOfQuantity
+      );
+
+      let sum = filtered.reduce(
+        (a, b) => parseFloat(a.quantity) + parseFloat(b.quantity)
+      );
+
+      let filteredListOfProducts = listOfProducts.filter(
+        item =>
+          !(item.product === name && item.typeOfQuantity === typeOfQuantity)
+      );
+
+      listOfProducts = filteredListOfProducts;
+
+      listOfProducts.push({
+        product: name,
+        category: category,
+        quantity: sum,
+        typeOfQuantity: typeOfQuantity
+      });
+    }
+
+    this.setState({
+      products: listOfProducts
+    });
+  };
+
   addRecipeToShoplist = (
     ingredient1,
     ingredient2,
@@ -220,29 +257,78 @@ class YourProducts extends Component {
     ingredient4,
     ingredient5
   ) => {
-    let arr = this.state.products;
-    if (ingredient1.product !== "") {
-      arr.push(ingredient1);
-    }
+    const ingredients = [
+      ingredient1,
+      ingredient2,
+      ingredient3,
+      ingredient4,
+      ingredient5
+    ];
 
-    if (ingredient2.product) {
-      arr.push(ingredient2);
-    }
+    let listOfProducts = [...this.state.products];
 
-    if (ingredient3.product) {
-      arr.push(ingredient3);
-    }
+    ingredients.forEach(element => {
+      if (element.product !== "") {
+        listOfProducts.push(element);
+      }
 
-    if (ingredient4.product) {
-      arr.push(ingredient4);
-    }
+      let productsNames = listOfProducts.map(item => item.product);
+      const repeat = productsNames.indexOf(element.product);
 
-    if (ingredient5.product) {
-      arr.push(ingredient5);
-    }
+      if (repeat !== -1) {
+        let filtered = listOfProducts.filter(item => {
+          return item.product === element.product;
+        });
 
+        let filteredKg = filtered.filter(item => {
+          return item.typeOfQuantity === "kg";
+        });
+
+        let filteredItems = filtered.filter(item => {
+          return item.typeOfQuantity === "items";
+        });
+
+        if (filteredKg.length > 1) {
+          let sumKg = filteredKg.reduce((a, b) => {
+            return parseFloat(a.quantity) + parseFloat(b.quantity);
+          });
+
+          let updatedListOfProducts = listOfProducts.filter(item => {
+            return item.product !== element.product;
+          });
+
+          listOfProducts = updatedListOfProducts;
+
+          updatedListOfProducts.push({
+            product: element.product,
+            category: element.category,
+            quantity: sumKg,
+            typeOfQuantity: "kg"
+          });
+        }
+
+        if (filteredItems.length > 1) {
+          let sumItems = filteredItems.reduce((a, b) => {
+            return parseFloat(a.quantity) + parseFloat(b.quantity);
+          });
+
+          let updatedListOfProducts = listOfProducts.filter(item => {
+            return item.product !== element.product;
+          });
+
+          listOfProducts = updatedListOfProducts;
+
+          updatedListOfProducts.push({
+            product: element.product,
+            category: element.category,
+            quantity: sumItems,
+            typeOfQuantity: "items"
+          });
+        }
+      }
+    });
     this.setState({
-      products: arr
+      products: listOfProducts
     });
   };
 
@@ -271,6 +357,7 @@ class YourProducts extends Component {
           handleButton={this.handleButton}
         />
         <h1>Your products</h1>
+
         {localStorage.getItem("fruitsAndVegs") ? (
           <>
             <h2>Fruits and vegetables</h2>
