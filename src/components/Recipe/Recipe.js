@@ -31,6 +31,9 @@ class Recipe extends Component {
             Add to your shoplist
           </button>
           <button onClick={this.toOpen}>Show ingredients</button>
+          <button onClick={this.props.removeRecipeFromShoplist}>
+            Remove from your shoplist
+          </button>
         </td>
       </tr>
     );

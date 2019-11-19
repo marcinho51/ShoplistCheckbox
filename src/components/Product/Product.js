@@ -86,7 +86,12 @@ class Product extends Component {
                   input: !state.input
                 }),
                 () => {
-                  this.props.removeProductFromShoplist(this.state.name);
+                  this.props.removeProductFromShoplist(
+                    this.state.name,
+                    this.state.category,
+                    this.state.quantity,
+                    this.state.typeOfQuantity
+                  );
                 }
               )
             }

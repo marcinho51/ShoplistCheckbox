@@ -129,6 +129,22 @@ class YourRecipes extends Component {
     });
   };
 
+  removeRecipeFromShoplist = (
+    ingredient1,
+    ingredient2,
+    ingredient3,
+    ingredient4,
+    ingredient5
+  ) => {
+    const ingredients = [
+      ingredient1,
+      ingredient2,
+      ingredient3,
+      ingredient4,
+      ingredient5
+    ];
+  };
+
   render() {
     return (
       <div className="col-2 widget-yourRecipes">
@@ -152,6 +168,7 @@ class YourRecipes extends Component {
           ingredient5={this.state.ingredient5}
           name={this.state.name}
           addRecipe={this.addRecipe}
+          removeRecipeFromShoplist={this.removeRecipeFromShoplist}
         />
         <h1>List of Recipes</h1>
         {localStorage.getItem("recipes") ? (

@@ -268,77 +268,94 @@ class YourProducts extends Component {
     let listOfProducts = [...this.state.products];
 
     ingredients.forEach(element => {
-      if (element.product !== "") {
-        listOfProducts.push(element);
+      let repeat = listOfProducts
+        .map(item => item.product + item.typeOfQuantity)
+        .indexOf(element.product + element.typeOfQuantity);
+
+      console.log(repeat);
+
+      if (repeat === -1 && element.product !== "") {
+        listOfProducts.push({
+          product: element.product,
+          category: element.category,
+          quantity: element.quantity,
+          typeOfQuantity: element.typeOfQuantity
+        });
+      } else if (repeat !== -1 && element.product !== "") {
+        listOfProducts.push({
+          product: element.product,
+          category: element.category,
+          quantity: element.quantity,
+          typeOfQuantity: element.typeOfQuantity
+        });
+
+        let filtered = listOfProducts.filter(
+          item =>
+            item.product === element.product &&
+            item.typeOfQuantity === element.typeOfQuantity
+        );
+
+        let sum = filtered.reduce(
+          (a, b) => parseFloat(a.quantity) + parseFloat(b.quantity)
+        );
+
+        let filteredListOfProducts = listOfProducts.filter(
+          item =>
+            !(
+              item.product === element.product &&
+              item.typeOfQuantity === element.typeOfQuantity
+            )
+        );
+
+        listOfProducts = filteredListOfProducts;
+
+        listOfProducts.push({
+          product: element.product,
+          category: element.category,
+          quantity: sum,
+          typeOfQuantity: element.typeOfQuantity
+        });
       }
 
-      let productsNames = listOfProducts.map(item => item.product);
-      const repeat = productsNames.indexOf(element.product);
-
-      if (repeat !== -1) {
-        let filtered = listOfProducts.filter(item => {
-          return item.product === element.product;
-        });
-
-        let filteredKg = filtered.filter(item => {
-          return item.typeOfQuantity === "kg";
-        });
-
-        let filteredItems = filtered.filter(item => {
-          return item.typeOfQuantity === "items";
-        });
-
-        if (filteredKg.length > 1) {
-          let sumKg = filteredKg.reduce((a, b) => {
-            return parseFloat(a.quantity) + parseFloat(b.quantity);
-          });
-
-          let updatedListOfProducts = listOfProducts.filter(item => {
-            return item.product !== element.product;
-          });
-
-          listOfProducts = updatedListOfProducts;
-
-          updatedListOfProducts.push({
-            product: element.product,
-            category: element.category,
-            quantity: sumKg,
-            typeOfQuantity: "kg"
-          });
-        }
-
-        if (filteredItems.length > 1) {
-          let sumItems = filteredItems.reduce((a, b) => {
-            return parseFloat(a.quantity) + parseFloat(b.quantity);
-          });
-
-          let updatedListOfProducts = listOfProducts.filter(item => {
-            return item.product !== element.product;
-          });
-
-          listOfProducts = updatedListOfProducts;
-
-          updatedListOfProducts.push({
-            product: element.product,
-            category: element.category,
-            quantity: sumItems,
-            typeOfQuantity: "items"
-          });
-        }
-      }
-    });
-    this.setState({
-      products: listOfProducts
+      this.setState({
+        products: listOfProducts
+      });
     });
   };
 
-  removeProductFromShoplist = product => {
-    let arr = this.state.products.filter(item => {
-      return item.product !== product;
-    });
+  removeProductFromShoplist = (name, category, quantity, typeOfQuantity) => {
+    let listOfProducts = [...this.state.products];
+
+    let filtered = listOfProducts.filter(
+      item => item.product === name && item.typeOfQuantity === typeOfQuantity
+    );
+    console.log(filtered);
+
+    if (parseFloat(filtered[0].quantity) === parseFloat(quantity)) {
+      let updatedListOfProducts = listOfProducts.filter(
+        item =>
+          !(item.product === name && item.typeOfQuantity === typeOfQuantity)
+      );
+
+      listOfProducts = updatedListOfProducts;
+    } else if (parseFloat(filtered[0].quantity) > parseFloat(quantity)) {
+      let updatedListOfProducts = listOfProducts.filter(
+        item =>
+          !(item.product === name && item.typeOfQuantity === typeOfQuantity)
+      );
+
+      listOfProducts = updatedListOfProducts;
+
+      listOfProducts.push({
+        product: name,
+        category: category,
+        quantity: parseFloat(filtered[0].quantity) - parseFloat(quantity),
+        typeOfQuantity: typeOfQuantity
+      });
+    }
 
     this.setState({
-      products: arr
+      products: listOfProducts
     });
   };
 
