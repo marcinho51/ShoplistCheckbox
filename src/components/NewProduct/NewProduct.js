@@ -3,6 +3,12 @@ import "./NewProduct.scss";
 
 class NewProduct extends Component {
   render() {
+    const warn1 = (
+      <span style={{ color: "red" }}>You must choose category!</span>
+    );
+    const warn2 = { border: "1px solid red" };
+    const normal = { border: "1px solid grey", color: "black" };
+
     return (
       <>
         <label>
@@ -12,10 +18,12 @@ class NewProduct extends Component {
             onChange={this.props.change}
             value={this.props.newProduct}
             name="newProduct"
+            style={this.props.warn2 ? warn2 : normal}
           />
         </label>
         <label>
           Category
+          {this.props.warn1 ? warn1 : null}
           <select value={this.props.select} onChange={this.props.selectChange}>
             <option>Wybierz kategorię...</option>
             <option value="fruitsAndVegs">Fruits and vegetables</option>

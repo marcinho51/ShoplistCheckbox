@@ -12,7 +12,9 @@ class YourRecipes extends Component {
     ingredient2: { product: "" },
     ingredient3: { product: "" },
     ingredient4: { product: "" },
-    ingredient5: { product: "" }
+    ingredient5: { product: "" },
+    products: this.props.products,
+    recipesFromLocalStorage: JSON.parse(localStorage.getItem("recipes"))
   };
 
   handleDefineName = event => {
@@ -54,6 +56,16 @@ class YourRecipes extends Component {
         ...this.state[event.target.name],
         category: event.target.value
       }
+    });
+  };
+
+  removeRecipe = name => {
+    let arr = JSON.parse(localStorage.getItem("recipes"));
+    let arr2 = arr.filter(item => item.name !== name);
+    localStorage.setItem("recipes", JSON.stringify(arr2));
+
+    this.setState({
+      recipesFromLocalStorage: arr2
     });
   };
 
@@ -129,22 +141,6 @@ class YourRecipes extends Component {
     });
   };
 
-  removeRecipeFromShoplist = (
-    ingredient1,
-    ingredient2,
-    ingredient3,
-    ingredient4,
-    ingredient5
-  ) => {
-    const ingredients = [
-      ingredient1,
-      ingredient2,
-      ingredient3,
-      ingredient4,
-      ingredient5
-    ];
-  };
-
   render() {
     return (
       <div className="col-2 widget-yourRecipes">
@@ -168,7 +164,6 @@ class YourRecipes extends Component {
           ingredient5={this.state.ingredient5}
           name={this.state.name}
           addRecipe={this.addRecipe}
-          removeRecipeFromShoplist={this.removeRecipeFromShoplist}
         />
         <h1>List of Recipes</h1>
         {localStorage.getItem("recipes") ? (
@@ -185,6 +180,10 @@ class YourRecipes extends Component {
                     ingredient4={item.ingredient4}
                     ingredient5={item.ingredient5}
                     addRecipeToShoplist={this.props.addRecipeToShoplist}
+                    removeRecipeFromShoplist={
+                      this.props.removeRecipeFromShoplist
+                    }
+                    removeRecipe={this.removeRecipe}
                   />
                 ))}
               </tbody>

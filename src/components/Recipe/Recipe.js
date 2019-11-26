@@ -31,8 +31,21 @@ class Recipe extends Component {
             Add to your shoplist
           </button>
           <button onClick={this.toOpen}>Show ingredients</button>
-          <button onClick={this.props.removeRecipeFromShoplist}>
+          <button
+            onClick={() =>
+              this.props.removeRecipeFromShoplist(
+                this.props.ingredient1,
+                this.props.ingredient2,
+                this.props.ingredient3,
+                this.props.ingredient4,
+                this.props.ingredient5
+              )
+            }
+          >
             Remove from your shoplist
+          </button>
+          <button onClick={() => this.props.removeRecipe(this.props.name)}>
+            Remove from your recipes
           </button>
         </td>
       </tr>
@@ -100,6 +113,21 @@ class Recipe extends Component {
               }
             >
               Add to your shoplist
+            </button>
+          </td>
+          <td>
+            <button
+              onClick={() =>
+                this.props.removeRecipeFromShoplist(
+                  this.props.ingredient1,
+                  this.props.ingredient2,
+                  this.props.ingredient3,
+                  this.props.ingredient4,
+                  this.props.ingredient5
+                )
+              }
+            >
+              Remove from your shoplist
             </button>
           </td>
         </tr>

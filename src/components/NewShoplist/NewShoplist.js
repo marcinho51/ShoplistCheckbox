@@ -4,7 +4,7 @@ import "./NewShoplist.scss";
 class NewShoplist extends Component {
   state = {
     shoplist: false,
-    products: []
+    products: this.props.products
   };
 
   createShoplist = () => {

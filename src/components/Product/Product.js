@@ -22,6 +22,18 @@ class Product extends Component {
     });
   };
 
+  inputChange = () => {
+    if (this.state.quantity !== "" && this.state.typeOfQuantity !== "") {
+      this.setState({
+        input: false
+      });
+    } else {
+      this.setState({
+        input: true
+      });
+    }
+  };
+
   render() {
     const form = (
       <tr key={this.props.name}>
@@ -45,17 +57,20 @@ class Product extends Component {
         </td>
         <td>
           <button
-            onClick={e =>
-              this.props.handleButton(
-                this.state.name,
-                this.state.category,
-                this.state.quantity,
-                this.state.typeOfQuantity,
+            onClick={
+              this.state.quantity !== "" && this.state.typeOfQuantity !== ""
+                ? e =>
+                    this.props.addProductToShoplist(
+                      this.state.name,
+                      this.state.category,
+                      this.state.quantity,
+                      this.state.typeOfQuantity,
 
-                this.setState(state => ({
-                  input: !state.input
-                }))
-              )
+                      this.setState(state => ({
+                        input: !state.input
+                      }))
+                    )
+                : null
             }
           >
             Add to your shoplist
@@ -67,7 +82,7 @@ class Product extends Component {
               this.props.deleteItem(this.state.category, this.state.name)
             }
           >
-            Delete
+            Remove from your products
           </button>
         </td>
       </tr>
