@@ -3,7 +3,10 @@ import "./Hello.scss";
 
 class Hello extends Component {
   render() {
+    const userFromLocalStorage = JSON.stringify(localStorage.getItem("user"));
     return (
+      // <h1>Witaj {userFromLocalStorage}</h1>
+
       <section className="first-entry">
         <h3>Witaj,</h3>
         <h4>wygląda na to, że jesteś tutaj</h4>

@@ -264,10 +264,8 @@ class Main extends Component {
   };
 
   render() {
-    const userFromLocalStorage = JSON.stringify(localStorage.getItem("user"));
     return (
       <>
-        <h1>Witaj {userFromLocalStorage}</h1>
         <Hello
           user={this.state.user}
           change={this.handleChange}

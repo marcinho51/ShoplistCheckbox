@@ -44,6 +44,12 @@ class NewShoplist extends Component {
   };
 
   render() {
+    const sorted = [...this.state.products].sort((a, b) => {
+      let categoryA = a.category;
+      let categoryB = b.category;
+      return categoryA.localeCompare(categoryB);
+    });
+
     const button = (
       <div>
         <button onClick={this.createShoplist} className="add-recipe">
@@ -54,7 +60,7 @@ class NewShoplist extends Component {
 
     const newShoplist = (
       <ul>
-        {this.state.products.map((item, index) => {
+        {sorted.map((item, index) => {
           return (
             <li key={index}>
               <input
