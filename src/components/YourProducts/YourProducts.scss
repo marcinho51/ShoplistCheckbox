@@ -1,0 +1,26 @@
+.wrapper {
+  .row {
+    margin-top: -1.2rem;
+    .yourProducts {
+      align-items: center;
+      width: 100%;
+      h1 {
+        color: #39686b;
+        margin: 1rem 0 1rem 11rem;
+        text-transform: uppercase;
+      }
+      h2 {
+        color: #39686b;
+        text-align: center;
+      }
+      table {
+        border: 1px solid #95c7ca;
+        border-radius: 10px;
+        margin: 0 auto;
+        width: 70%;
+        tbody {
+        }
+      }
+    }
+  }
+}

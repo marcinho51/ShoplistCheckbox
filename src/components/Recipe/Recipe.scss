@@ -1,0 +1,40 @@
+tr {
+  height: 2rem;
+  .nameOfTheRecipe {
+    color: #39686b;
+    font-size: 1.2rem;
+    font-weight: 700;
+    // width: 20%;
+  }
+  .addRecipeToShoplistBtn {
+    button {
+      background-color: #95c7ca;
+      border: none;
+      border-radius: 10px;
+      color: #ffffff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.3rem;
+      width: 100%;
+    }
+  }
+  .removeRecipeBtn {
+    button {
+      background-color: #95c7ca;
+      border: none;
+      border-radius: 10px;
+      color: #ffffff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.1rem;
+
+      width: 100%;
+    }
+  }
+  .ingredient {
+    color: #95c7ca;
+    font-size: 0.8rem;
+    font-weight: 700;
+    width: 16.666%;
+  }
+}

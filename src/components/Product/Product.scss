@@ -1,0 +1,81 @@
+tr {
+  height: 2rem;
+  .nameOfProduct {
+    color: #39686b;
+    font-size: 1.2rem;
+    font-weight: 700;
+    width: 20%;
+  }
+  .nameOfProduct2 {
+    color: #39686b;
+    font-size: 1.2rem;
+    font-weight: 700;
+    width: 5%;
+  }
+  .numberOfProducts {
+    width: 10%;
+    input {
+      border-radius: 5px;
+      color: #39686b;
+      font-weight: 700;
+      width: 50%;
+    }
+  }
+  .typeOfQuantity {
+    width: 20%;
+    select {
+      background-color: #95c7ca;
+      border: none;
+      border-radius: 5px;
+      color: #ffffff;
+      font-size: 0.7rem;
+      font-weight: 700;
+    }
+  }
+  .addToYourShoplistBtn {
+    width: 25%;
+    button {
+      background-color: #95c7ca;
+      border: none;
+      border-radius: 10px;
+      color: #ffffff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.3rem;
+      width: 100%;
+    }
+  }
+  .removeFromYourProductsBtn {
+    width: 25%;
+    button {
+      background-color: #95c7ca;
+      border: none;
+      border-radius: 10px;
+      color: #ffffff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.3rem;
+      width: 100%;
+    }
+  }
+  .removeFromYourShoplistBtn {
+    width: 50%;
+    button {
+      background-color: #95c7ca;
+      border: none;
+      border-radius: 10px;
+      color: #ffffff;
+      font-size: 0.7rem;
+      font-weight: 700;
+
+      padding: 0.3rem;
+      width: 35%;
+    }
+  }
+}
+
+th,
+td {
+  padding: 5px;
+  text-align: left;
+}

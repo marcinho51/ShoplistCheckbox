@@ -3,18 +3,16 @@ import "./Hello.scss";
 
 class Hello extends Component {
   render() {
-    const userFromLocalStorage = JSON.stringify(localStorage.getItem("user"));
-    return (
-      // <h1>Witaj {userFromLocalStorage}</h1>
-
+    const userFromLocalStorage = localStorage.getItem("user");
+    const firstEntry = (
       <section className="first-entry">
-        <h3>Witaj,</h3>
-        <h4>wygląda na to, że jesteś tutaj</h4>
-        <h4>pierwszy raz!</h4>
+        <h3>Hello,</h3>
+        <h4>it seems you're </h4>
+        <h4>the first time here!</h4>
         <input
           id="userName"
           type="text"
-          placeholder="tutaj wpisz jak masz na imię"
+          placeholder="enter your name here"
           onChange={this.props.change}
           value={this.props.user}
         />
@@ -25,10 +23,20 @@ class Hello extends Component {
           value="Gotowe!"
           onClick={this.props.buttonChange}
         />
-        <h5>Podaj nam swoje imię, a my zorganizujemy</h5>
-        <h5>dla Ciebie naszą aplikację:)</h5>
+        <h5>Enter your name and we'll organize</h5>
+        <h5>this application for you :)</h5>
       </section>
     );
+
+    const secondEntry = (
+      <section className="second-entry">
+        <h1>Hello {userFromLocalStorage}!</h1>
+        <h5>Let's choose and create your products and recipes...</h5>
+        <h5>... and create your shopping list :)</h5>
+      </section>
+    );
+
+    return userFromLocalStorage ? secondEntry : firstEntry;
   }
 }
 

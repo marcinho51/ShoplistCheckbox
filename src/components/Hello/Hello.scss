@@ -1,3 +1,31 @@
-section {
-  border: 1px solid red;
+.first-entry {
+  height: 100%;
+  padding: 3rem;
+  width: 100%;
+  h3 {
+    font-size: 4rem;
+    text-align: center;
+  }
+  h4 {
+    font-size: 3rem;
+    text-align: center;
+  }
+}
+
+.second-entry {
+  height: 100%;
+  padding: 3rem;
+  width: 100%;
+  h1 {
+    color: #39686b;
+    font-size: 5rem;
+    padding: 2rem 0;
+    text-align: center;
+  }
+  h5 {
+    color: #95c7ca;
+    font-size: 3rem;
+    padding: 1rem 0;
+    text-align: center;
+  }
 }

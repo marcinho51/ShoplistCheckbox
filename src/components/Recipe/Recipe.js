@@ -22,24 +22,26 @@ class Recipe extends Component {
     const hidden = (
       <>
         <tr>
-          <td>{this.props.name}</td>
-          <td>
+          <td className="nameOfTheRecipe">{this.props.name}</td>
+          <td className="addRecipeToShoplistBtn">
             <button
               onClick={
-                (() =>
+                () =>
                   this.props.addRecipeToShoplist(
                     this.props.ingredient1,
                     this.props.ingredient2,
                     this.props.ingredient3,
                     this.props.ingredient4,
                     this.props.ingredient5
-                  ),
-                this.toRemove)
+                  )
+                //   ,
+                // this.toRemove
               }
             >
               Add to your shoplist
             </button>
-
+          </td>
+          <td className="removeRecipeBtn">
             <button onClick={() => this.props.removeRecipe(this.props.name)}>
               Remove from your recipes
             </button>
@@ -47,32 +49,32 @@ class Recipe extends Component {
         </tr>
 
         <tr>
-          <td>Ingredients:</td>
-          <td>
+          <td className="ingredient">Ingredients:</td>
+          <td className="ingredient">
             {this.props.ingredient1.quantity}{" "}
             {this.props.ingredient1.typeOfQuantity}{" "}
             {this.props.ingredient1.product}
           </td>
 
-          <td>
+          <td className="ingredient">
             {this.props.ingredient2.quantity}{" "}
             {this.props.ingredient2.typeOfQuantity}{" "}
             {this.props.ingredient2.product}
           </td>
 
-          <td>
+          <td className="ingredient">
             {this.props.ingredient3.quantity}{" "}
             {this.props.ingredient3.typeOfQuantity}{" "}
             {this.props.ingredient3.product}
           </td>
 
-          <td>
+          <td className="ingredient">
             {this.props.ingredient4.quantity}{" "}
             {this.props.ingredient4.typeOfQuantity}{" "}
             {this.props.ingredient4.product}
           </td>
 
-          <td>
+          <td className="ingredient">
             {this.props.ingredient5.quantity}{" "}
             {this.props.ingredient5.typeOfQuantity}{" "}
             {this.props.ingredient5.product}
@@ -84,7 +86,7 @@ class Recipe extends Component {
     const visible = (
       <>
         <tr>
-          <td>{this.props.name}</td>
+          <td className="nameOfTheRecipe">{this.props.name}</td>
           <td>
             <button
               onClick={
@@ -104,33 +106,33 @@ class Recipe extends Component {
           </td>
         </tr>
         <tr>
-          <td>Ingredients:</td>
+          <td className="ingredient">Ingredients:</td>
 
-          <td>
+          <td className="ingredient">
             {this.props.ingredient1.quantity}{" "}
             {this.props.ingredient1.typeOfQuantity}{" "}
             {this.props.ingredient1.product}
           </td>
 
-          <td>
+          <td className="ingredient">
             {this.props.ingredient2.quantity}{" "}
             {this.props.ingredient2.typeOfQuantity}{" "}
             {this.props.ingredient2.product}
           </td>
 
-          <td>
+          <td className="ingredient">
             {this.props.ingredient3.quantity}{" "}
             {this.props.ingredient3.typeOfQuantity}{" "}
             {this.props.ingredient3.product}
           </td>
 
-          <td>
+          <td className="ingredient">
             {this.props.ingredient4.quantity}{" "}
             {this.props.ingredient4.typeOfQuantity}{" "}
             {this.props.ingredient4.product}
           </td>
 
-          <td>
+          <td className="ingredient">
             {this.props.ingredient5.quantity}{" "}
             {this.props.ingredient5.typeOfQuantity}{" "}
             {this.props.ingredient5.product}

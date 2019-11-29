@@ -231,526 +231,369 @@ class YourProducts extends Component {
     localStorage.setItem("productsFromLocalStorage", JSON.stringify(arr2));
   };
 
-  // handleButtonShoplist = (name, category, quantity, typeOfQuantity) => {
-  //   let listOfProducts = [...this.state.products];
-
-  //   let repeat = listOfProducts
-  //     .map(item => item.product + item.typeOfQuantity)
-  //     .indexOf(name + typeOfQuantity);
-
-  //   console.log(repeat);
-
-  //   if (repeat === -1) {
-  //     listOfProducts.push({
-  //       product: name,
-  //       category: category,
-  //       quantity: quantity,
-  //       typeOfQuantity: typeOfQuantity
-  //     });
-  //   } else if (repeat !== -1) {
-  //     listOfProducts.push({
-  //       product: name,
-  //       category: category,
-  //       quantity: quantity,
-  //       typeOfQuantity: typeOfQuantity
-  //     });
-
-  //     let filtered = listOfProducts.filter(
-  //       item => item.product === name && item.typeOfQuantity === typeOfQuantity
-  //     );
-
-  //     let sum = filtered.reduce(
-  //       (a, b) => parseFloat(a.quantity) + parseFloat(b.quantity)
-  //     );
-
-  //     let filteredListOfProducts = listOfProducts.filter(
-  //       item =>
-  //         !(item.product === name && item.typeOfQuantity === typeOfQuantity)
-  //     );
-
-  //     listOfProducts = filteredListOfProducts;
-
-  //     listOfProducts.push({
-  //       product: name,
-  //       category: category,
-  //       quantity: sum,
-  //       typeOfQuantity: typeOfQuantity
-  //     });
-  //   }
-
-  //   this.setState({
-  //     products: listOfProducts
-  //   });
-  // };
-
-  // addRecipeToShoplist = (
-  //   ingredient1,
-  //   ingredient2,
-  //   ingredient3,
-  //   ingredient4,
-  //   ingredient5
-  // ) => {
-  //   const ingredients = [
-  //     ingredient1,
-  //     ingredient2,
-  //     ingredient3,
-  //     ingredient4,
-  //     ingredient5
-  //   ];
-
-  //   let listOfProducts = [...this.state.products];
-
-  //   ingredients.forEach(element => {
-  //     let repeat = listOfProducts
-  //       .map(item => item.product + item.typeOfQuantity)
-  //       .indexOf(element.product + element.typeOfQuantity);
-
-  //     console.log(repeat);
-
-  //     if (repeat === -1 && element.product !== "") {
-  //       listOfProducts.push({
-  //         product: element.product,
-  //         category: element.category,
-  //         quantity: element.quantity,
-  //         typeOfQuantity: element.typeOfQuantity
-  //       });
-  //     } else if (repeat !== -1 && element.product !== "") {
-  //       listOfProducts.push({
-  //         product: element.product,
-  //         category: element.category,
-  //         quantity: element.quantity,
-  //         typeOfQuantity: element.typeOfQuantity
-  //       });
-
-  //       let filtered = listOfProducts.filter(
-  //         item =>
-  //           item.product === element.product &&
-  //           item.typeOfQuantity === element.typeOfQuantity
-  //       );
-
-  //       let sum = filtered.reduce(
-  //         (a, b) => parseFloat(a.quantity) + parseFloat(b.quantity)
-  //       );
-
-  //       let filteredListOfProducts = listOfProducts.filter(
-  //         item =>
-  //           !(
-  //             item.product === element.product &&
-  //             item.typeOfQuantity === element.typeOfQuantity
-  //           )
-  //       );
-
-  //       listOfProducts = filteredListOfProducts;
-
-  //       listOfProducts.push({
-  //         product: element.product,
-  //         category: element.category,
-  //         quantity: sum,
-  //         typeOfQuantity: element.typeOfQuantity
-  //       });
-  //     }
-
-  //     this.setState({
-  //       products: listOfProducts
-  //     });
-  //   });
-  // };
-
-  // removeProductFromShoplist = (name, category, quantity, typeOfQuantity) => {
-  //   let listOfProducts = [...this.state.products];
-
-  //   let filtered = listOfProducts.filter(
-  //     item => item.product === name && item.typeOfQuantity === typeOfQuantity
-  //   );
-  //   console.log(filtered);
-
-  //   if (parseFloat(filtered[0].quantity) === parseFloat(quantity)) {
-  //     let updatedListOfProducts = listOfProducts.filter(
-  //       item =>
-  //         !(item.product === name && item.typeOfQuantity === typeOfQuantity)
-  //     );
-
-  //     listOfProducts = updatedListOfProducts;
-  //   } else if (parseFloat(filtered[0].quantity) > parseFloat(quantity)) {
-  //     let updatedListOfProducts = listOfProducts.filter(
-  //       item =>
-  //         !(item.product === name && item.typeOfQuantity === typeOfQuantity)
-  //     );
-
-  //     listOfProducts = updatedListOfProducts;
-
-  //     listOfProducts.push({
-  //       product: name,
-  //       category: category,
-  //       quantity: parseFloat(filtered[0].quantity) - parseFloat(quantity),
-  //       typeOfQuantity: typeOfQuantity
-  //     });
-  //   }
-
-  //   this.setState({
-  //     products: listOfProducts
-  //   });
-  // };
-
   render() {
     return (
-      <div className="col-2 widget-yourProducts">
-        <div className="cross">
-          <i className="fas fa-plus fa-2x"></i>
-        </div>
-        <p className="add-recipe">Twoje produkty</p>
-        <NewProduct
-          change={this.handleChange}
-          selectChange={this.selectChange}
-          newProduct={this.state.newProduct}
-          select={this.state.select}
-          handleButton={this.handleButton}
-          warn1={this.state.warn1}
-          warn2={this.state.warn2}
-        />
-        <h1>Your products</h1>
+      <div className="wrapper">
+        <div className="row">
+          <div className="yourProducts col-12">
+            <h1>Your products</h1>
 
-        {localStorage.getItem("fruitsAndVegs") ? (
-          <>
-            <h2>Fruits and vegetables</h2>
-            <table>
-              <tbody>
-                {JSON.parse(localStorage.getItem("fruitsAndVegs")).map(item => (
-                  <Product
-                    addProductToShoplist={this.props.addProductToShoplist}
-                    category="fruitsAndVegs"
-                    deleteItem={this.deleteItem}
-                    name={item}
-                    key={item}
-                    removeProductFromShoplist={
-                      this.props.removeProductFromShoplist
-                    }
-                  />
-                ))}
-              </tbody>
-            </table>
-          </>
-        ) : null}
-        {localStorage.getItem("looseProducts") ? (
-          <>
-            <h2>Loose products</h2>
-            <table>
-              <tbody>
-                {JSON.parse(localStorage.getItem("looseProducts")).map(item => (
-                  <Product
-                    addProductToShoplist={this.props.addProductToShoplist}
-                    category="looseProducts"
-                    deleteItem={this.deleteItem}
-                    name={item}
-                    key={item}
-                    removeProductFromShoplist={
-                      this.props.removeProductFromShoplist
-                    }
-                  />
-                ))}
-              </tbody>
-            </table>
-          </>
-        ) : null}
-        {localStorage.getItem("forCakes") ? (
-          <>
-            <h2>For cakes</h2>
-            <table>
-              <tbody>
-                {JSON.parse(localStorage.getItem("forCakes")).map(item => (
-                  <Product
-                    addProductToShoplist={this.props.addProductToShoplist}
-                    category="forCakes"
-                    deleteItem={this.deleteItem}
-                    name={item}
-                    key={item}
-                    removeProductFromShoplist={
-                      this.props.removeProductFromShoplist
-                    }
-                  />
-                ))}
-              </tbody>
-            </table>
-          </>
-        ) : null}
-        {localStorage.getItem("meat") ? (
-          <>
-            <h2>Meat</h2>
-            <table>
-              <tbody>
-                {JSON.parse(localStorage.getItem("meat")).map(item => (
-                  <Product
-                    addProductToShoplist={this.props.addProductToShoplist}
-                    category="meat"
-                    deleteItem={this.deleteItem}
-                    name={item}
-                    key={item}
-                    removeProductFromShoplist={
-                      this.props.removeProductFromShoplist
-                    }
-                  />
-                ))}
-              </tbody>
-            </table>
-          </>
-        ) : null}
-        {localStorage.getItem("cannedGoods") ? (
-          <>
-            <h2>Canned goods</h2>
-            <table>
-              <tbody>
-                {JSON.parse(localStorage.getItem("cannedGoods")).map(item => (
-                  <Product
-                    addProductToShoplist={this.props.addProductToShoplist}
-                    category="cannedGoods"
-                    deleteItem={this.deleteItem}
-                    name={item}
-                    key={item}
-                    removeProductFromShoplist={
-                      this.props.removeProductFromShoplist
-                    }
-                  />
-                ))}
-              </tbody>
-            </table>
-          </>
-        ) : null}
-        {localStorage.getItem("sweets") ? (
-          <>
-            <h2>Sweets</h2>
-            <table>
-              <tbody>
-                {JSON.parse(localStorage.getItem("sweets")).map(item => (
-                  <Product
-                    addProductToShoplist={this.props.addProductToShoplist}
-                    category="sweets"
-                    deleteItem={this.deleteItem}
-                    name={item}
-                    key={item}
-                    removeProductFromShoplist={
-                      this.props.removeProductFromShoplist
-                    }
-                  />
-                ))}
-              </tbody>
-            </table>
-          </>
-        ) : null}
-        {localStorage.getItem("frozen") ? (
-          <>
-            <h2>Frozen</h2>
-            <table>
-              <tbody>
-                {JSON.parse(localStorage.getItem("frozen")).map(item => (
-                  <Product
-                    addProductToShoplist={this.props.addProductToShoplist}
-                    category="frozen"
-                    deleteItem={this.deleteItem}
-                    name={item}
-                    key={item}
-                    removeProductFromShoplist={
-                      this.props.removeProductFromShoplist
-                    }
-                  />
-                ))}
-              </tbody>
-            </table>
-          </>
-        ) : null}
-        {localStorage.getItem("bread") ? (
-          <>
-            <h2>Bread</h2>
-            <table>
-              <tbody>
-                {JSON.parse(localStorage.getItem("bread")).map(item => (
-                  <Product
-                    addProductToShoplist={this.props.addProductToShoplist}
-                    category="bread"
-                    deleteItem={this.deleteItem}
-                    name={item}
-                    key={item}
-                    removeProductFromShoplist={
-                      this.props.removeProductFromShoplist
-                    }
-                  />
-                ))}
-              </tbody>
-            </table>
-          </>
-        ) : null}
-        {localStorage.getItem("dairy") ? (
-          <>
-            <h2>Dairy</h2>
-            <table>
-              <tbody>
-                {JSON.parse(localStorage.getItem("dairy")).map(item => (
-                  <Product
-                    addProductToShoplist={this.props.addProductToShoplist}
-                    category="dairy"
-                    deleteItem={this.deleteItem}
-                    name={item}
-                    key={item}
-                    removeProductFromShoplist={
-                      this.props.removeProductFromShoplist
-                    }
-                  />
-                ))}
-              </tbody>
-            </table>
-          </>
-        ) : null}
-        {localStorage.getItem("spices") ? (
-          <>
-            <h2>Spices</h2>
-            <table>
-              <tbody>
-                {JSON.parse(localStorage.getItem("spices")).map(item => (
-                  <Product
-                    addProductToShoplist={this.props.addProductToShoplist}
-                    category="spices"
-                    deleteItem={this.deleteItem}
-                    name={item}
-                    key={item}
-                    removeProductFromShoplist={
-                      this.props.removeProductFromShoplist
-                    }
-                  />
-                ))}
-              </tbody>
-            </table>
-          </>
-        ) : null}
-        {localStorage.getItem("beverages") ? (
-          <>
-            <h2>Beverages</h2>
-            <table>
-              <tbody>
-                {JSON.parse(localStorage.getItem("beverages")).map(item => (
-                  <Product
-                    addProductToShoplist={this.props.addProductToShoplist}
-                    category="beverages"
-                    deleteItem={this.deleteItem}
-                    name={item}
-                    key={item}
-                    removeProductFromShoplist={
-                      this.props.removeProductFromShoplist
-                    }
-                  />
-                ))}
-              </tbody>
-            </table>
-          </>
-        ) : null}
-        {localStorage.getItem("fats") ? (
-          <>
-            <h2>Fats</h2>
-            <table>
-              <tbody>
-                {JSON.parse(localStorage.getItem("fats")).map(item => (
-                  <Product
-                    addProductToShoplist={this.props.addProductToShoplist}
-                    category="fats"
-                    deleteItem={this.deleteItem}
-                    name={item}
-                    key={item}
-                    removeProductFromShoplist={
-                      this.props.removeProductFromShoplist
-                    }
-                  />
-                ))}
-              </tbody>
-            </table>
-          </>
-        ) : null}
-        {localStorage.getItem("cleaningStuff") ? (
-          <>
-            <h2>Cleaning stuff</h2>
-            <table>
-              <tbody>
-                {JSON.parse(localStorage.getItem("cleaningStuff")).map(item => (
-                  <Product
-                    addProductToShoplist={this.props.addProductToShoplist}
-                    category="cleaningStuff"
-                    deleteItem={this.deleteItem}
-                    name={item}
-                    key={item}
-                    removeProductFromShoplist={
-                      this.props.removeProductFromShoplist
-                    }
-                  />
-                ))}
-              </tbody>
-            </table>
-          </>
-        ) : null}
-        {localStorage.getItem("forHome") ? (
-          <>
-            <h2>For home</h2>
-            <table>
-              <tbody>
-                {JSON.parse(localStorage.getItem("forHome")).map(item => (
-                  <Product
-                    addProductToShoplist={this.props.addProductToShoplist}
-                    category="forHome"
-                    deleteItem={this.deleteItem}
-                    name={item}
-                    key={item}
-                    removeProductFromShoplist={
-                      this.props.removeProductFromShoplist
-                    }
-                  />
-                ))}
-              </tbody>
-            </table>
-          </>
-        ) : null}
-        {localStorage.getItem("cosmetics") ? (
-          <>
-            <h2>Cosmetics</h2>
-            <table>
-              <tbody>
-                {JSON.parse(localStorage.getItem("cosmetics")).map(item => (
-                  <Product
-                    addProductToShoplist={this.props.addProductToShoplist}
-                    category="cosmetics"
-                    deleteItem={this.deleteItem}
-                    name={item}
-                    key={item}
-                    removeProductFromShoplist={
-                      this.props.removeProductFromShoplist
-                    }
-                  />
-                ))}
-              </tbody>
-            </table>
-          </>
-        ) : null}
-        {localStorage.getItem("other") ? (
-          <>
-            <h2>Other</h2>
-            <table>
-              <tbody>
-                {JSON.parse(localStorage.getItem("other")).map(item => (
-                  <Product
-                    addProductToShoplist={this.props.addProductToShoplist}
-                    category="other"
-                    deleteItem={this.deleteItem}
-                    name={item}
-                    key={item}
-                    removeProductFromShoplist={
-                      this.props.removeProductFromShoplist
-                    }
-                  />
-                ))}
-              </tbody>
-            </table>
-          </>
-        ) : null}
-        {/* <YourRecipes
-          addRecipeToShoplist={this.addRecipeToShoplist}
-          products={this.state.products}
-        /> */}
-        {/* <NewShoplist products={this.state.products} /> */}
+            {localStorage.getItem("fruitsAndVegs") ? (
+              <>
+                <h2>Fruits and vegetables</h2>
+                <table>
+                  <tbody>
+                    {JSON.parse(localStorage.getItem("fruitsAndVegs")).map(
+                      item => (
+                        <Product
+                          addProductToShoplist={this.props.addProductToShoplist}
+                          category="fruitsAndVegs"
+                          deleteItem={this.deleteItem}
+                          name={item}
+                          key={item}
+                          removeProductFromShoplist={
+                            this.props.removeProductFromShoplist
+                          }
+                        />
+                      )
+                    )}
+                  </tbody>
+                </table>
+              </>
+            ) : null}
+            {localStorage.getItem("looseProducts") ? (
+              <>
+                <h2>Loose products</h2>
+                <table>
+                  <tbody>
+                    {JSON.parse(localStorage.getItem("looseProducts")).map(
+                      item => (
+                        <Product
+                          addProductToShoplist={this.props.addProductToShoplist}
+                          category="looseProducts"
+                          deleteItem={this.deleteItem}
+                          name={item}
+                          key={item}
+                          removeProductFromShoplist={
+                            this.props.removeProductFromShoplist
+                          }
+                        />
+                      )
+                    )}
+                  </tbody>
+                </table>
+              </>
+            ) : null}
+            {localStorage.getItem("forCakes") ? (
+              <>
+                <h2>For cakes</h2>
+                <table>
+                  <tbody>
+                    {JSON.parse(localStorage.getItem("forCakes")).map(item => (
+                      <Product
+                        addProductToShoplist={this.props.addProductToShoplist}
+                        category="forCakes"
+                        deleteItem={this.deleteItem}
+                        name={item}
+                        key={item}
+                        removeProductFromShoplist={
+                          this.props.removeProductFromShoplist
+                        }
+                      />
+                    ))}
+                  </tbody>
+                </table>
+              </>
+            ) : null}
+            {localStorage.getItem("meat") ? (
+              <>
+                <h2>Meat</h2>
+                <table>
+                  <tbody>
+                    {JSON.parse(localStorage.getItem("meat")).map(item => (
+                      <Product
+                        addProductToShoplist={this.props.addProductToShoplist}
+                        category="meat"
+                        deleteItem={this.deleteItem}
+                        name={item}
+                        key={item}
+                        removeProductFromShoplist={
+                          this.props.removeProductFromShoplist
+                        }
+                      />
+                    ))}
+                  </tbody>
+                </table>
+              </>
+            ) : null}
+            {localStorage.getItem("cannedGoods") ? (
+              <>
+                <h2>Canned goods</h2>
+                <table>
+                  <tbody>
+                    {JSON.parse(localStorage.getItem("cannedGoods")).map(
+                      item => (
+                        <Product
+                          addProductToShoplist={this.props.addProductToShoplist}
+                          category="cannedGoods"
+                          deleteItem={this.deleteItem}
+                          name={item}
+                          key={item}
+                          removeProductFromShoplist={
+                            this.props.removeProductFromShoplist
+                          }
+                        />
+                      )
+                    )}
+                  </tbody>
+                </table>
+              </>
+            ) : null}
+            {localStorage.getItem("sweets") ? (
+              <>
+                <h2>Sweets</h2>
+                <table>
+                  <tbody>
+                    {JSON.parse(localStorage.getItem("sweets")).map(item => (
+                      <Product
+                        addProductToShoplist={this.props.addProductToShoplist}
+                        category="sweets"
+                        deleteItem={this.deleteItem}
+                        name={item}
+                        key={item}
+                        removeProductFromShoplist={
+                          this.props.removeProductFromShoplist
+                        }
+                      />
+                    ))}
+                  </tbody>
+                </table>
+              </>
+            ) : null}
+            {localStorage.getItem("frozen") ? (
+              <>
+                <h2>Frozen</h2>
+                <table>
+                  <tbody>
+                    {JSON.parse(localStorage.getItem("frozen")).map(item => (
+                      <Product
+                        addProductToShoplist={this.props.addProductToShoplist}
+                        category="frozen"
+                        deleteItem={this.deleteItem}
+                        name={item}
+                        key={item}
+                        removeProductFromShoplist={
+                          this.props.removeProductFromShoplist
+                        }
+                      />
+                    ))}
+                  </tbody>
+                </table>
+              </>
+            ) : null}
+            {localStorage.getItem("bread") ? (
+              <>
+                <h2>Bread</h2>
+                <table>
+                  <tbody>
+                    {JSON.parse(localStorage.getItem("bread")).map(item => (
+                      <Product
+                        addProductToShoplist={this.props.addProductToShoplist}
+                        category="bread"
+                        deleteItem={this.deleteItem}
+                        name={item}
+                        key={item}
+                        removeProductFromShoplist={
+                          this.props.removeProductFromShoplist
+                        }
+                      />
+                    ))}
+                  </tbody>
+                </table>
+              </>
+            ) : null}
+            {localStorage.getItem("dairy") ? (
+              <>
+                <h2>Dairy</h2>
+                <table>
+                  <tbody>
+                    {JSON.parse(localStorage.getItem("dairy")).map(item => (
+                      <Product
+                        addProductToShoplist={this.props.addProductToShoplist}
+                        category="dairy"
+                        deleteItem={this.deleteItem}
+                        name={item}
+                        key={item}
+                        removeProductFromShoplist={
+                          this.props.removeProductFromShoplist
+                        }
+                      />
+                    ))}
+                  </tbody>
+                </table>
+              </>
+            ) : null}
+            {localStorage.getItem("spices") ? (
+              <>
+                <h2>Spices</h2>
+                <table>
+                  <tbody>
+                    {JSON.parse(localStorage.getItem("spices")).map(item => (
+                      <Product
+                        addProductToShoplist={this.props.addProductToShoplist}
+                        category="spices"
+                        deleteItem={this.deleteItem}
+                        name={item}
+                        key={item}
+                        removeProductFromShoplist={
+                          this.props.removeProductFromShoplist
+                        }
+                      />
+                    ))}
+                  </tbody>
+                </table>
+              </>
+            ) : null}
+            {localStorage.getItem("beverages") ? (
+              <>
+                <h2>Beverages</h2>
+                <table>
+                  <tbody>
+                    {JSON.parse(localStorage.getItem("beverages")).map(item => (
+                      <Product
+                        addProductToShoplist={this.props.addProductToShoplist}
+                        category="beverages"
+                        deleteItem={this.deleteItem}
+                        name={item}
+                        key={item}
+                        removeProductFromShoplist={
+                          this.props.removeProductFromShoplist
+                        }
+                      />
+                    ))}
+                  </tbody>
+                </table>
+              </>
+            ) : null}
+            {localStorage.getItem("fats") ? (
+              <>
+                <h2>Fats</h2>
+                <table>
+                  <tbody>
+                    {JSON.parse(localStorage.getItem("fats")).map(item => (
+                      <Product
+                        addProductToShoplist={this.props.addProductToShoplist}
+                        category="fats"
+                        deleteItem={this.deleteItem}
+                        name={item}
+                        key={item}
+                        removeProductFromShoplist={
+                          this.props.removeProductFromShoplist
+                        }
+                      />
+                    ))}
+                  </tbody>
+                </table>
+              </>
+            ) : null}
+            {localStorage.getItem("cleaningStuff") ? (
+              <>
+                <h2>Cleaning stuff</h2>
+                <table>
+                  <tbody>
+                    {JSON.parse(localStorage.getItem("cleaningStuff")).map(
+                      item => (
+                        <Product
+                          addProductToShoplist={this.props.addProductToShoplist}
+                          category="cleaningStuff"
+                          deleteItem={this.deleteItem}
+                          name={item}
+                          key={item}
+                          removeProductFromShoplist={
+                            this.props.removeProductFromShoplist
+                          }
+                        />
+                      )
+                    )}
+                  </tbody>
+                </table>
+              </>
+            ) : null}
+            {localStorage.getItem("forHome") ? (
+              <>
+                <h2>For home</h2>
+                <table>
+                  <tbody>
+                    {JSON.parse(localStorage.getItem("forHome")).map(item => (
+                      <Product
+                        addProductToShoplist={this.props.addProductToShoplist}
+                        category="forHome"
+                        deleteItem={this.deleteItem}
+                        name={item}
+                        key={item}
+                        removeProductFromShoplist={
+                          this.props.removeProductFromShoplist
+                        }
+                      />
+                    ))}
+                  </tbody>
+                </table>
+              </>
+            ) : null}
+            {localStorage.getItem("cosmetics") ? (
+              <>
+                <h2>Cosmetics</h2>
+                <table>
+                  <tbody>
+                    {JSON.parse(localStorage.getItem("cosmetics")).map(item => (
+                      <Product
+                        addProductToShoplist={this.props.addProductToShoplist}
+                        category="cosmetics"
+                        deleteItem={this.deleteItem}
+                        name={item}
+                        key={item}
+                        removeProductFromShoplist={
+                          this.props.removeProductFromShoplist
+                        }
+                      />
+                    ))}
+                  </tbody>
+                </table>
+              </>
+            ) : null}
+            {localStorage.getItem("other") ? (
+              <>
+                <h2>Other</h2>
+                <table>
+                  <tbody>
+                    {JSON.parse(localStorage.getItem("other")).map(item => (
+                      <Product
+                        addProductToShoplist={this.props.addProductToShoplist}
+                        category="other"
+                        deleteItem={this.deleteItem}
+                        name={item}
+                        key={item}
+                        removeProductFromShoplist={
+                          this.props.removeProductFromShoplist
+                        }
+                      />
+                    ))}
+                  </tbody>
+                </table>
+              </>
+            ) : null}
+            <h1>Add new product</h1>
+            <NewProduct
+              change={this.handleChange}
+              selectChange={this.selectChange}
+              newProduct={this.state.newProduct}
+              select={this.state.select}
+              handleButton={this.handleButton}
+              warn1={this.state.warn1}
+              warn2={this.state.warn2}
+            />
+          </div>
+        </div>
       </div>
     );
   }

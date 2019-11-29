@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 class Navigation extends Component {
   render() {
     const active = {
-      border: "5px solid green"
+      color: "blue"
     };
     return (
       <nav>
@@ -27,7 +27,7 @@ class Navigation extends Component {
           </li>
           <li>
             <NavLink activeStyle={active} to="/shoplist">
-              New Shoplist
+              Your Shoplist
             </NavLink>
           </li>
         </ul>

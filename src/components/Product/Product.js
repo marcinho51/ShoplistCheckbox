@@ -37,15 +37,15 @@ class Product extends Component {
   render() {
     const form = (
       <tr key={this.props.name}>
-        <td>{this.props.name}</td>
-        <td>
+        <td className="nameOfProduct">{this.props.name}</td>
+        <td className="numberOfProducts">
           <input
             type="number"
             value={this.state.quantity}
             onChange={this.handleChangeQuantity}
           />
         </td>
-        <td>
+        <td className="typeOfQuantity">
           <select
             value={this.state.typeOfQuantity}
             onChange={this.handleSelectQuantity}
@@ -55,7 +55,7 @@ class Product extends Component {
             <option value="kg">weight [kg]</option>
           </select>
         </td>
-        <td>
+        <td className="addToYourShoplistBtn">
           <button
             onClick={
               this.state.quantity !== "" && this.state.typeOfQuantity !== ""
@@ -76,7 +76,7 @@ class Product extends Component {
             Add to your shoplist
           </button>
         </td>
-        <td>
+        <td className="removeFromYourProductsBtn">
           <button
             onClick={() =>
               this.props.deleteItem(this.state.category, this.state.name)
@@ -90,10 +90,10 @@ class Product extends Component {
 
     const chosen = (
       <tr key={this.props.name}>
-        <td>{this.props.name}</td>
-        <td>{this.state.quantity}</td>
-        <td>{this.state.typeOfQuantity}</td>
-        <td>
+        <td className="nameOfProduct">{this.props.name}</td>
+        <td className="nameOfProduct2">{this.state.quantity}</td>
+        <td className="nameOfProduct2">{this.state.typeOfQuantity}</td>
+        <td className="removeFromYourShoplistBtn">
           <button
             onClick={e =>
               this.setState(
