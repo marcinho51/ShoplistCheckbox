@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 class Navigation extends Component {
   render() {
     const active = {
-      color: "blue"
+      color: "#39686b"
     };
     return (
       <nav>
@@ -16,6 +16,11 @@ class Navigation extends Component {
             </NavLink>
           </li>
           <li>
+            <NavLink activeStyle={active} exact to="/productsandrecipes">
+              Products And Recipes
+            </NavLink>
+          </li>
+          {/* <li>
             <NavLink activeStyle={active} to="/products">
               Your Products
             </NavLink>
@@ -24,12 +29,12 @@ class Navigation extends Component {
             <NavLink activeStyle={active} to="/recipes">
               Your Recipes
             </NavLink>
-          </li>
-          <li>
+          </li> */}
+          {/* <li>
             <NavLink activeStyle={active} to="/shoplist">
               Your Shoplist
             </NavLink>
-          </li>
+          </li> */}
         </ul>
       </nav>
     );

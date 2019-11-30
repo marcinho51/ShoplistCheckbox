@@ -81,37 +81,33 @@ class NewShoplist extends Component {
     // );
 
     return (
-      <div className="wrapper">
-        <div className="row">
-          <div className="newShoplist col-12">
-            <h1>Here's your shoplist:</h1>
-            <table>
-              <tbody>
-                {sorted.map((item, index) => {
-                  return (
-                    <tr key={index}>
-                      <td>
-                        <input
-                          onChange={event =>
-                            this.deleteItemFromShoplist(
-                              event,
-                              item.product,
-                              item.typeOfQuantity
-                            )
-                          }
-                          type="checkbox"
-                        />
-                      </td>
-                      <td> {item.product}</td>
-                      <td>{item.quantity}</td>
-                      <td>{item.typeOfQuantity}</td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
-        </div>
+      <div className="newShoplist col-12">
+        <h1>Here's your shoplist:</h1>
+        <table>
+          <tbody>
+            {sorted.map((item, index) => {
+              return (
+                <tr key={index}>
+                  <td>
+                    <input
+                      onChange={event =>
+                        this.deleteItemFromShoplist(
+                          event,
+                          item.product,
+                          item.typeOfQuantity
+                        )
+                      }
+                      type="checkbox"
+                    />
+                  </td>
+                  <td> {item.product}</td>
+                  <td>{item.quantity}</td>
+                  <td>{item.typeOfQuantity}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
       </div>
     );
   }

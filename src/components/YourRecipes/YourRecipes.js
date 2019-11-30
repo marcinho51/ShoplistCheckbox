@@ -143,51 +143,56 @@ class YourRecipes extends Component {
 
   render() {
     return (
-      <div className="wrapper">
-        <div className="row">
-          <div className="yourRecipes col-12">
-            <h1>List of Recipes</h1>
-            {localStorage.getItem("recipes") ? (
-              <>
-                <table>
-                  <tbody>
-                    {JSON.parse(localStorage.getItem("recipes")).map(item => (
-                      <Recipe
-                        name={item.name}
-                        key={item.name}
-                        ingredient1={item.ingredient1}
-                        ingredient2={item.ingredient2}
-                        ingredient3={item.ingredient3}
-                        ingredient4={item.ingredient4}
-                        ingredient5={item.ingredient5}
-                        addRecipeToShoplist={this.props.addRecipeToShoplist}
-                        removeRecipeFromShoplist={
-                          this.props.removeRecipeFromShoplist
-                        }
-                        removeRecipe={this.removeRecipe}
-                      />
-                    ))}
-                  </tbody>
-                </table>
-              </>
-            ) : null}
-            <NewRecipe
-              handleDefineName={this.handleDefineName}
-              handleDefineIngredient={this.handleDefineIngredient}
-              handleChangeQuantity={this.handleChangeQuantity}
-              handleSelectQuantity={this.handleSelectQuantity}
-              selectChange={this.selectChange}
-              ingredient1={this.state.ingredient1}
-              ingredient2={this.state.ingredient2}
-              ingredient3={this.state.ingredient3}
-              ingredient4={this.state.ingredient4}
-              ingredient5={this.state.ingredient5}
-              name={this.state.name}
-              addRecipe={this.addRecipe}
-            />
-          </div>
+      // <div className="wrapper">
+      //   <div className="row">
+      <>
+        <div className="yourRecipes col-6">
+          <h1 id="yourRecipesHeadline">Your Recipes</h1>
+          {localStorage.getItem("recipes") ? (
+            <>
+              {/* <table>
+                  <tbody> */}
+              {JSON.parse(localStorage.getItem("recipes")).map(item => (
+                <Recipe
+                  name={item.name}
+                  key={item.name}
+                  ingredient1={item.ingredient1}
+                  ingredient2={item.ingredient2}
+                  ingredient3={item.ingredient3}
+                  ingredient4={item.ingredient4}
+                  ingredient5={item.ingredient5}
+                  addRecipeToShoplist={this.props.addRecipeToShoplist}
+                  removeRecipeFromShoplist={this.props.removeRecipeFromShoplist}
+                  removeRecipe={this.removeRecipe}
+                />
+              ))}
+              {/* </tbody>
+                </table> */}
+            </>
+          ) : null}
+          {/* </div> */}
+          {/* <div className="row"> */}
+          {/* <div className="col-6"> */}
+          <h1 id="yourRecipesHeadline">Add new recipe</h1>
+          <NewRecipe
+            handleDefineName={this.handleDefineName}
+            handleDefineIngredient={this.handleDefineIngredient}
+            handleChangeQuantity={this.handleChangeQuantity}
+            handleSelectQuantity={this.handleSelectQuantity}
+            selectChange={this.selectChange}
+            ingredient1={this.state.ingredient1}
+            ingredient2={this.state.ingredient2}
+            ingredient3={this.state.ingredient3}
+            ingredient4={this.state.ingredient4}
+            ingredient5={this.state.ingredient5}
+            name={this.state.name}
+            addRecipe={this.addRecipe}
+          />
         </div>
-      </div>
+        {/* </div> */}
+      </>
+
+      // </div>
     );
   }
 }

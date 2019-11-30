@@ -1,19 +1,22 @@
 tr {
   height: 2rem;
+  display: flex;
+  justify-content: center;
   .nameOfProduct {
     color: #39686b;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 700;
-    width: 20%;
+    text-align: center;
+    width: 40%;
   }
   .nameOfProduct2 {
     color: #39686b;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 700;
-    width: 5%;
+    text-align: left;
   }
   .numberOfProducts {
-    width: 10%;
+    width: 20%;
     input {
       border-radius: 5px;
       color: #39686b;
@@ -22,7 +25,7 @@ tr {
     }
   }
   .typeOfQuantity {
-    width: 20%;
+    width: 40%;
     select {
       background-color: #95c7ca;
       border: none;
@@ -33,7 +36,7 @@ tr {
     }
   }
   .addToYourShoplistBtn {
-    width: 25%;
+    // width: 35%;
     button {
       background-color: #95c7ca;
       border: none;
@@ -42,26 +45,34 @@ tr {
       font-size: 0.7rem;
       font-weight: 700;
       padding: 0.3rem;
-      width: 100%;
+      // width: 100%;
+      &:hover {
+        color: #39686b;
+        cursor: pointer;
+      }
     }
   }
   .removeFromYourProductsBtn {
-    width: 25%;
+    // width: 30%;
     button {
-      background-color: #95c7ca;
+      background-color: #a76040;
       border: none;
       border-radius: 10px;
       color: #ffffff;
       font-size: 0.7rem;
       font-weight: 700;
       padding: 0.3rem;
-      width: 100%;
+      // width: 100%;
+      &:hover {
+        color: #39686b;
+        cursor: pointer;
+      }
     }
   }
   .removeFromYourShoplistBtn {
-    width: 50%;
+    // width: 50%;
     button {
-      background-color: #95c7ca;
+      background-color: #d13f1b;
       border: none;
       border-radius: 10px;
       color: #ffffff;
@@ -69,7 +80,11 @@ tr {
       font-weight: 700;
 
       padding: 0.3rem;
-      width: 35%;
+      // width: 35%;
+      &:hover {
+        color: #39686b;
+        cursor: pointer;
+      }
     }
   }
 }
@@ -78,4 +93,12 @@ th,
 td {
   padding: 5px;
   text-align: left;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
 }

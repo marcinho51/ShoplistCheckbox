@@ -12,7 +12,15 @@ nav {
       display: block;
       list-style: none;
       padding: 0 2rem;
-      text-decoration: none;
+
+      a {
+        color: #ffffff;
+        text-decoration: none;
+        text-transform: uppercase;
+        &:hover {
+          color: #39686b;
+        }
+      }
     }
   }
 }

@@ -1,9 +1,11 @@
 tr {
   height: 2rem;
-  .nameOfTheRecipe {
+  margin: 0.3rem;
+  #nameOfTheRecipe {
     color: #39686b;
     font-size: 1.2rem;
     font-weight: 700;
+
     // width: 20%;
   }
   .addRecipeToShoplistBtn {
@@ -16,25 +18,65 @@ tr {
       font-weight: 700;
       padding: 0.3rem;
       width: 100%;
+      &:hover {
+        color: #39686b;
+        cursor: pointer;
+      }
     }
   }
-  .removeRecipeBtn {
+  .removeRecipeFromShoplistBtn {
     button {
-      background-color: #95c7ca;
+      background-color: #d13f1b;
       border: none;
       border-radius: 10px;
       color: #ffffff;
       font-size: 0.7rem;
       font-weight: 700;
-      padding: 0.1rem;
-
+      padding: 0.3rem;
       width: 100%;
+      &:hover {
+        color: #39686b;
+        cursor: pointer;
+      }
     }
   }
+  .removeRecipeBtn {
+    button {
+      background-color: #a76040;
+      border: none;
+      border-radius: 10px;
+      color: #ffffff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.3rem;
+      width: 100%;
+      &:hover {
+        color: #39686b;
+        cursor: pointer;
+      }
+    }
+  }
+  .nameOfTheRecipe {
+    color: #39686b;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-align: center;
+    width: 25%;
+  }
+
+  .ingredientMain {
+    color: #39686b;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-align: center;
+    width: 25%;
+  }
+
   .ingredient {
     color: #95c7ca;
     font-size: 0.8rem;
     font-weight: 700;
-    width: 16.666%;
+    text-align: center;
+    width: 15%;
   }
 }

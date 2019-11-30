@@ -10,9 +10,9 @@ class NewProduct extends Component {
     const normal = { border: "1px solid grey", color: "#39686b" };
 
     return (
-      <div className="wrapper">
-        <div className="row">
-          <div className="newProduct col-12">
+      <>
+        <tr className="newProduct">
+          <td>
             <input
               type="text"
               onChange={this.props.change}
@@ -27,7 +27,7 @@ class NewProduct extends Component {
               value={this.props.select}
               onChange={this.props.selectChange}
             >
-              <option>Wybierz kategorię...</option>
+              <option>...</option>
               <option value="fruitsAndVegs">Fruits and vegetables</option>
               <option value="looseProducts">Loose products</option>
               <option value="forCakes">For cakes</option>
@@ -45,11 +45,14 @@ class NewProduct extends Component {
               <option value="cosmetics">Cosmetics</option>
               <option value="other">Other</option>
             </select>
-
-            <button onClick={this.props.handleButton}>Dodaj</button>
-          </div>
-        </div>
-      </div>
+          </td>
+        </tr>
+        <tr className="newProductBtn">
+          <td>
+            <button onClick={this.props.handleButton}>Add</button>
+          </td>
+        </tr>
+      </>
     );
   }
 }

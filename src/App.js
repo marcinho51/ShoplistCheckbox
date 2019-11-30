@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { HashRouter, Route, Switch } from "react-router-dom";
 import "./App.scss";
-// import Main from "./components/Main/Main";
+import Main from "./components/Main/Main";
 import Hello from "./components/Hello/Hello";
-import YourRecipes from "./components/YourRecipes/YourRecipes";
-import YourProducts from "./components/YourProducts/YourProducts";
+// import YourRecipes from "./components/YourRecipes/YourRecipes";
+// import YourProducts from "./components/YourProducts/YourProducts";
 import NewShoplist from "./components/NewShoplist/NewShoplist";
 import Navigation from "./components/Navigation/Navigation";
 
@@ -269,7 +269,7 @@ class App extends Component {
   render() {
     return (
       <HashRouter>
-        <Navigation />
+        {/* <Navigation /> */}
         <Switch>
           <Route
             exact
@@ -283,7 +283,7 @@ class App extends Component {
               />
             )}
           />
-          <Route
+          {/* <Route
             path="/products"
             render={routeProps => (
               <YourProducts
@@ -293,12 +293,25 @@ class App extends Component {
                 removeProductFromShoplist={this.removeProductFromShoplist}
               />
             )}
-          />
-          <Route
+          /> */}
+          {/* <Route
             path="/recipes"
             render={routeProps => (
               <YourRecipes
                 {...routeProps}
+                addRecipeToShoplist={this.addRecipeToShoplist}
+                products={this.state.products}
+                removeRecipeFromShoplist={this.removeRecipeFromShoplist}
+              />
+            )}
+          /> */}
+          <Route
+            path="/productsandrecipes"
+            render={routeProps => (
+              <Main
+                {...routeProps}
+                addProductToShoplist={this.addProductToShoplist}
+                removeProductFromShoplist={this.removeProductFromShoplist}
                 addRecipeToShoplist={this.addRecipeToShoplist}
                 products={this.state.products}
                 removeRecipeFromShoplist={this.removeRecipeFromShoplist}
