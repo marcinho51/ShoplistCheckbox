@@ -12,7 +12,7 @@ class Main extends Component {
 
   render() {
     return (
-      <div className="wrapper">
+      <div className="wrapper2">
         <div className="row">
           <YourProducts
             addProductToShoplist={this.props.addProductToShoplist}
@@ -32,7 +32,7 @@ class Main extends Component {
               <Link to="/shoplist">Create your shopping list!</Link>
             </button>
           </div>
-          <div className="col-5"></div>
+          <div className="col-6"></div>
         </div>
       </div>
     );

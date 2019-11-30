@@ -1,14 +1,65 @@
+.wrapper {
+  background-color: #efefef;
+  max-width: 1200px;
+  margin: -1rem auto 0 auto;
+  padding: 0 1rem;
+}
 .first-entry {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   height: 100vh;
   padding: 3rem;
   width: 100%;
+  background-image: url("../../images/food.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   h3 {
-    font-size: 4rem;
+    color: #ffffff;
+    font-size: 5rem;
+    padding: 0.5rem 0;
     text-align: center;
   }
-  h4 {
-    font-size: 3rem;
+  h5 {
+    color: #ffffff;
+    font-size: 2.5rem;
+    padding: 1rem 0;
     text-align: center;
+  }
+  .inputs {
+    display: flex;
+
+    input[type="text"] {
+      border-radius: 5px;
+      color: #39686b;
+      font-size: 1.5rem;
+      font-weight: 700;
+      height: 3rem;
+      border: 2px solid #ffffff;
+      margin: 1rem 2rem 1rem 0;
+      padding-left: 0.5rem;
+      width: 70%;
+      &::placeholder {
+        color: #39686b;
+        font-size: 1.5rem;
+        padding-left: 0.5rem;
+      }
+    }
+    input[type="button"] {
+      background-color: #95c7ca;
+      border: none;
+      border-radius: 10px;
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: 700;
+      margin: 1rem 0;
+      padding: 0.8rem;
+      width: 40%;
+      &:hover {
+        color: #39686b;
+        cursor: pointer;
+      }
+    }
   }
 }
 
@@ -19,6 +70,10 @@
   height: 100vh;
   padding: 3rem;
   width: 100%;
+  width: 100%;
+  background-image: url("../../images/food2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   h1 {
     color: #39686b;
     font-size: 5rem;
@@ -26,7 +81,7 @@
     text-align: center;
   }
   h5 {
-    color: #95c7ca;
+    color: #39686b;
     font-size: 3rem;
     padding: 1rem 0;
     text-align: center;

@@ -1,29 +1,32 @@
-.wrapper {
-  margin-top: 1.2rem;
-  .row {
-    h1 {
-      color: #39686b;
-      margin: 1rem 0;
-    }
+.row {
+  h1 {
+    color: #39686b;
+    margin: 1rem 0;
+  }
 
-    .newShoplist {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      table {
-        border: 1px solid #39686b;
-        border-collapse: collapse;
-        width: 25%;
-        tr {
-          height: 2rem;
-          td {
-            border: 1px solid #39686b;
-            color: #39686b;
-            font-size: 1rem;
-            font-weight: 700;
-          }
+  .newShoplist {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    table {
+      border: 1px solid #39686b;
+      border-collapse: collapse;
+      width: 25%;
+      margin: 0 0 3rem 0;
+      tr {
+        height: 1.5rem;
+        td {
+          // border: 1px solid #39686b;
+          color: #39686b;
+          font-size: 1rem;
+          font-weight: 700;
+          text-align: center;
+          width: 25%;
         }
       }
+    }
+    img {
+      margin-bottom: 5rem;
     }
   }
 }

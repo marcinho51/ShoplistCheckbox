@@ -50,66 +50,53 @@ class NewShoplist extends Component {
       return categoryA.localeCompare(categoryB);
     });
 
-    // const button = (
-    //   <div>
-    //     <button onClick={this.createShoplist} className="add-recipe">
-    //       Wygeneruj listę zakupów
-    //     </button>
-    //   </div>
-    // );
-
-    // const newShoplist = (
-    //   <ul>
-    // {sorted.map((item, index) => {
-    //   return (
-    //     <li key={index}>
-    //       <input
-    //         onChange={event =>
-    //           this.deleteItemFromShoplist(
-    //             event,
-    //             item.product,
-    //             item.typeOfQuantity
-    //           )
-    //         }
-    //         type="checkbox"
-    //       />
-    //       {item.product} {item.quantity} {item.typeOfQuantity}
-    //     </li>
-    //   );
-    // })}
-    //   </ul>
-    // );
-
-    return (
-      <div className="newShoplist col-12">
-        <h1>Here's your shoplist:</h1>
-        <table>
-          <tbody>
-            {sorted.map((item, index) => {
-              return (
-                <tr key={index}>
-                  <td>
-                    <input
-                      onChange={event =>
-                        this.deleteItemFromShoplist(
-                          event,
-                          item.product,
-                          item.typeOfQuantity
-                        )
-                      }
-                      type="checkbox"
-                    />
-                  </td>
-                  <td> {item.product}</td>
-                  <td>{item.quantity}</td>
-                  <td>{item.typeOfQuantity}</td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+    const shoppingList = (
+      <div className="wrapper2">
+        <div className="row">
+          <div className="newShoplist col-12">
+            <h1>Here's your shopping list:</h1>
+            <table>
+              <tbody>
+                {sorted.map((item, index) => {
+                  return (
+                    <tr key={index}>
+                      <td>
+                        <input
+                          onChange={event =>
+                            this.deleteItemFromShoplist(
+                              event,
+                              item.product,
+                              item.typeOfQuantity
+                            )
+                          }
+                          type="checkbox"
+                        />
+                      </td>
+                      <td> {item.product}</td>
+                      <td>{item.quantity}</td>
+                      <td>{item.typeOfQuantity}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     );
+
+    const finishedShoppingList = (
+      <div className="wrapper2">
+        <div className="row">
+          <div className="newShoplist col-12">
+            <h1>Shopping done, congratulations :)</h1>
+            <img src={require("../../images/img1.jpg")} />
+          </div>
+        </div>
+      </div>
+    );
+
+    return sorted.length > 0 ? shoppingList : finishedShoppingList;
   }
 }
 
