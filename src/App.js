@@ -319,7 +319,7 @@ class App extends Component {
             )}
           />
           <Route
-            path="/shoplist"
+            path="/shoppinglist"
             render={routeProps => (
               <NewShoplist {...routeProps} products={this.state.products} />
             )}

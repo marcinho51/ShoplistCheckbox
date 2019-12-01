@@ -25,15 +25,17 @@ class Main extends Component {
             removeRecipeFromShoplist={this.props.removeRecipeFromShoplist}
           />
         </div>
-        <div className="row">
-          <div className="col-5"></div>
-          <div className="col-2">
-            <button id="createShopList">
-              <Link to="/shoplist">Create your shopping list!</Link>
-            </button>
+        {this.props.products.length > 0 ? (
+          <div className="row">
+            <div className="col-5"></div>
+            <div className="col-2">
+              <button id="createShopList">
+                <Link to="/shoppinglist">Create your shopping list!</Link>
+              </button>
+            </div>
+            <div className="col-6"></div>
           </div>
-          <div className="col-6"></div>
-        </div>
+        ) : null}
       </div>
     );
   }

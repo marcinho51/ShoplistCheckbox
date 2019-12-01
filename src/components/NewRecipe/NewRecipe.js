@@ -11,6 +11,7 @@ class NewRecipe extends Component {
           name="name"
           value={this.props.name}
           onChange={this.props.handleDefineName}
+          placeholder="Enter the name of the recipe"
         />
 
         <table>

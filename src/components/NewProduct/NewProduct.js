@@ -3,11 +3,11 @@ import "./NewProduct.scss";
 
 class NewProduct extends Component {
   render() {
-    const warn1 = (
-      <span style={{ color: "red" }}>You must choose category!</span>
-    );
-    const warn2 = { border: "1px solid red" };
-    const normal = { border: "1px solid grey", color: "#39686b" };
+    // const warn1 = (
+    //   <span style={{ color: "red" }}>You must choose category!</span>
+    // );
+    // const warn2 = { border: "1px solid red" };
+    // const normal = { border: "1px solid grey", color: "#39686b" };
 
     return (
       <>
@@ -19,10 +19,10 @@ class NewProduct extends Component {
               value={this.props.newProduct}
               name="newProduct"
               placeholder="Enter new product's name"
-              style={this.props.warn2 ? warn2 : normal}
+              // style={this.props.warn2 ? warn2 : normal}
             />
 
-            {this.props.warn1 ? warn1 : null}
+            {/* {this.props.warn1 ? warn1 : null} */}
             <select
               value={this.props.select}
               onChange={this.props.selectChange}

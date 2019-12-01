@@ -32,10 +32,7 @@ class YourProducts extends Component {
     console.log(this.state.newProduct.length);
     if (this.state.newProduct.length === 0 && this.state.select.length === 0) {
       this.setState({
-        newProduct: "Enter the name of the product!",
-        select: "Choose the category!",
-        warn1: true,
-        warn2: true
+        newProduct: "Enter the name and category!"
       });
     } else if (
       this.state.select.length === 0 &&
@@ -204,9 +201,7 @@ class YourProducts extends Component {
         select: "",
         productsFromLocalStorage: JSON.parse(
           localStorage.getItem("productsFromLocalStorage")
-        ),
-        warn1: false,
-        warn2: false
+        )
       });
     }
   };

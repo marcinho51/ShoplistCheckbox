@@ -5,9 +5,10 @@ tr {
     color: #39686b;
     font-size: 1.2rem;
     font-weight: 700;
-
-    // width: 20%;
+    text-align: center;
+    width: 70%;
   }
+
   .addRecipeToShoplistBtn {
     button {
       background-color: #95c7ca;
@@ -66,6 +67,7 @@ tr {
 
   .ingredientMain {
     color: #39686b;
+    // display: none;
     font-size: 0.8rem;
     font-weight: 700;
     text-align: center;
@@ -74,9 +76,27 @@ tr {
 
   .ingredient {
     color: #95c7ca;
+    // display: none;
     font-size: 0.8rem;
     font-weight: 700;
     text-align: center;
     width: 15%;
+  }
+}
+
+.showIngredients {
+  button {
+    background-color: #606e0f;
+    border: none;
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.3rem;
+    width: 100%;
+    &:hover {
+      color: #dfdd6d;
+      cursor: pointer;
+    }
   }
 }

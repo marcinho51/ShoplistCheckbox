@@ -104,41 +104,60 @@ class YourRecipes extends Component {
         typeOfQuantity: this.state.ingredient5.typeOfQuantity
       }
     };
-    recipes.push(recipe);
-    localStorage.setItem("recipes", JSON.stringify(recipes));
-    this.setState({
-      name: "",
-      ingredient1: {
-        product: "",
-        category: "",
-        quantity: "",
-        typeOfQuantity: ""
-      },
-      ingredient2: {
-        product: "",
-        category: "",
-        quantity: "",
-        typeOfQuantity: ""
-      },
-      ingredient3: {
-        product: "",
-        category: "",
-        quantity: "",
-        typeOfQuantity: ""
-      },
-      ingredient4: {
-        product: "",
-        category: "",
-        quantity: "",
-        typeOfQuantity: ""
-      },
-      ingredient5: {
-        product: "",
-        category: "",
-        quantity: "",
-        typeOfQuantity: ""
-      }
-    });
+    if (
+      this.state.name.length > 0 &&
+      this.state.ingredient1.product.length > 2 &&
+      this.state.ingredient1.quantity !== undefined &&
+      this.state.ingredient1.category !== undefined &&
+      this.state.ingredient1.typeOfQuantity !== undefined &&
+      this.state.ingredient2.product.length > 2 &&
+      this.state.ingredient2.quantity !== undefined &&
+      this.state.ingredient2.category !== undefined &&
+      this.state.ingredient2.typeOfQuantity !== undefined
+    ) {
+      recipes.push(recipe);
+      localStorage.setItem("recipes", JSON.stringify(recipes));
+      this.setState({
+        name: "",
+        ingredient1: {
+          product: "",
+          category: "",
+          quantity: "",
+          typeOfQuantity: ""
+        },
+        ingredient2: {
+          product: "",
+          category: "",
+          quantity: "",
+          typeOfQuantity: ""
+        },
+        ingredient3: {
+          product: "",
+          category: "",
+          quantity: "",
+          typeOfQuantity: ""
+        },
+        ingredient4: {
+          product: "",
+          category: "",
+          quantity: "",
+          typeOfQuantity: ""
+        },
+        ingredient5: {
+          product: "",
+          category: "",
+          quantity: "",
+          typeOfQuantity: ""
+        }
+      });
+    } else {
+      this.setState({
+        name: "Enter name of the recipe! ",
+        ingredient1: {
+          product: "Enter at least 2 ingredients"
+        }
+      });
+    }
   };
 
   render() {
@@ -173,7 +192,7 @@ class YourRecipes extends Component {
           {/* </div> */}
           {/* <div className="row"> */}
           {/* <div className="col-6"> */}
-          <h1 id="yourRecipesHeadline">Add new recipe</h1>
+          <h1 id="addNewRecipeHeadline">Add new recipe</h1>
           <NewRecipe
             handleDefineName={this.handleDefineName}
             handleDefineIngredient={this.handleDefineIngredient}

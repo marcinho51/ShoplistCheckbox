@@ -70,6 +70,7 @@ class NewShoplist extends Component {
                             )
                           }
                           type="checkbox"
+                          checked={false}
                         />
                       </td>
                       <td> {item.product}</td>

@@ -65,7 +65,7 @@ class Product extends Component {
                   : null
               }
             >
-              Add to your shoplist
+              Add to shopping list
             </button>
           </td>
           <td></td>
@@ -107,7 +107,7 @@ class Product extends Component {
                 )
               }
             >
-              Remove from your shoplist
+              Remove from shopping list
             </button>
           </td>
         </tr>

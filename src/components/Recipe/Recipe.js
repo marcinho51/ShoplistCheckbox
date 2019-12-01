@@ -3,18 +3,62 @@ import "./Recipe.scss";
 
 class Recipe extends Component {
   state = {
-    remove: true
+    remove: true,
+    ingredients: false
   };
+
+  showIngredients = () => {
+    this.setState(state => ({
+      ingredients: !state.ingredients
+    }));
+  };
+
   render() {
+    const ingredientsShow = (
+      <tr>
+        <td className="ingredientMain">Ingredients:</td>
+        <td className="ingredient">
+          {this.props.ingredient1.quantity}{" "}
+          {this.props.ingredient1.typeOfQuantity}{" "}
+          {this.props.ingredient1.product}
+        </td>
+        <td className="ingredient">
+          {this.props.ingredient2.quantity}{" "}
+          {this.props.ingredient2.typeOfQuantity}{" "}
+          {this.props.ingredient2.product}
+        </td>
+
+        <td className="ingredient">
+          {this.props.ingredient3.quantity}{" "}
+          {this.props.ingredient3.typeOfQuantity}{" "}
+          {this.props.ingredient3.product}
+        </td>
+
+        <td className="ingredient">
+          {this.props.ingredient4.quantity}{" "}
+          {this.props.ingredient4.typeOfQuantity}{" "}
+          {this.props.ingredient4.product}
+        </td>
+
+        <td className="ingredient">
+          {this.props.ingredient5.quantity}{" "}
+          {this.props.ingredient5.typeOfQuantity}{" "}
+          {this.props.ingredient5.product}
+        </td>
+      </tr>
+    );
+
     const recipeAdd = (
       <table>
         <tbody>
           <tr>
             <td id="nameOfTheRecipe">{this.props.name}</td>
           </tr>
+          <tr className="showIngredients">
+            {/* </tr>
 
-          <tr>
-            <td className="ingredientMain">Ingredients:</td>
+          <tr> */}
+            {/* <td className="ingredientMain">Ingredients:</td>
             <td className="ingredient">
               {this.props.ingredient1.quantity}{" "}
               {this.props.ingredient1.typeOfQuantity}{" "}
@@ -44,7 +88,14 @@ class Recipe extends Component {
               {this.props.ingredient5.product}
             </td>
           </tr>
-          <tr>
+          <tr> */}
+            <td>
+              <button onClick={this.showIngredients}>
+                {this.state.ingredients
+                  ? "Hide ingredients"
+                  : "Show ingredients"}
+              </button>
+            </td>
             <td className="addRecipeToShoplistBtn">
               <button
                 onClick={() =>
@@ -60,7 +111,7 @@ class Recipe extends Component {
                   )
                 }
               >
-                Add to your shoplist
+                Add to shopping list
               </button>
             </td>
 
@@ -70,25 +121,14 @@ class Recipe extends Component {
               </button>
             </td>
           </tr>
-        </tbody>
-      </table>
-    );
-
-    const recipeRemove = (
-      <table>
-        <tbody>
-          <tr>
-            <td className="nameOfTheRecipe">{this.props.name}</td>
-          </tr>
-
-          <tr>
+          {this.state.ingredients ? ingredientsShow : null}
+          {/* <tr>
             <td className="ingredientMain">Ingredients:</td>
             <td className="ingredient">
               {this.props.ingredient1.quantity}{" "}
               {this.props.ingredient1.typeOfQuantity}{" "}
               {this.props.ingredient1.product}
             </td>
-
             <td className="ingredient">
               {this.props.ingredient2.quantity}{" "}
               {this.props.ingredient2.typeOfQuantity}{" "}
@@ -112,6 +152,16 @@ class Recipe extends Component {
               {this.props.ingredient5.typeOfQuantity}{" "}
               {this.props.ingredient5.product}
             </td>
+          </tr> */}
+        </tbody>
+      </table>
+    );
+
+    const recipeRemove = (
+      <table>
+        <tbody>
+          <tr>
+            <td className="nameOfTheRecipe">{this.props.name}</td>
           </tr>
           <tr>
             <td className="removeRecipeFromShoplistBtn">
@@ -129,7 +179,7 @@ class Recipe extends Component {
                   )
                 }
               >
-                Remove from your shoplist
+                Remove from shopping list
               </button>
             </td>
             {/* <td className="removeRecipeBtn">
@@ -137,6 +187,38 @@ class Recipe extends Component {
                 Remove from your recipes
               </button>
             </td> */}
+          </tr>
+          <tr>
+            <td className="ingredientMain">Ingredients:</td>
+            <td className="ingredient">
+              {this.props.ingredient1.quantity}{" "}
+              {this.props.ingredient1.typeOfQuantity}{" "}
+              {this.props.ingredient1.product}
+            </td>
+
+            <td className="ingredient">
+              {this.props.ingredient2.quantity}{" "}
+              {this.props.ingredient2.typeOfQuantity}{" "}
+              {this.props.ingredient2.product}
+            </td>
+
+            <td className="ingredient">
+              {this.props.ingredient3.quantity}{" "}
+              {this.props.ingredient3.typeOfQuantity}{" "}
+              {this.props.ingredient3.product}
+            </td>
+
+            <td className="ingredient">
+              {this.props.ingredient4.quantity}{" "}
+              {this.props.ingredient4.typeOfQuantity}{" "}
+              {this.props.ingredient4.product}
+            </td>
+
+            <td className="ingredient">
+              {this.props.ingredient5.quantity}{" "}
+              {this.props.ingredient5.typeOfQuantity}{" "}
+              {this.props.ingredient5.product}
+            </td>
           </tr>
         </tbody>
       </table>
