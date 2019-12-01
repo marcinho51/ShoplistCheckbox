@@ -9,9 +9,7 @@ class YourProducts extends Component {
   state = {
     newProduct: "",
     select: "",
-    products: this.props.products,
-    warn1: false,
-    warn2: false
+    products: this.props.products
   };
 
   handleChange = event => {
@@ -29,26 +27,13 @@ class YourProducts extends Component {
   arrayOfProducts = [];
 
   handleButton = () => {
-    console.log(this.state.newProduct.length);
-    if (this.state.newProduct.length === 0 && this.state.select.length === 0) {
+    if (
+      (this.state.newProduct.length === 0 && this.state.select.length === 0) ||
+      (this.state.select.length === 0 && this.state.newProduct.length > 0) ||
+      (this.state.newProduct.length === 0 && this.state.select.length > 0)
+    ) {
       this.setState({
         newProduct: "Enter the name and category!"
-      });
-    } else if (
-      this.state.select.length === 0 &&
-      this.state.newProduct.length > 0
-    ) {
-      this.setState({
-        select: "Choose the category!",
-        warn1: true
-      });
-    } else if (
-      this.state.newProduct.length === 0 &&
-      this.state.select.length > 0
-    ) {
-      this.setState({
-        newProduct: "Enter the name of the product!",
-        warn2: true
       });
     } else {
       if (this.state.select === "sweets") {

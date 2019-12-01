@@ -283,28 +283,7 @@ class App extends Component {
               />
             )}
           />
-          {/* <Route
-            path="/products"
-            render={routeProps => (
-              <YourProducts
-                {...routeProps}
-                addProductToShoplist={this.addProductToShoplist}
-                products={this.state.products}
-                removeProductFromShoplist={this.removeProductFromShoplist}
-              />
-            )}
-          /> */}
-          {/* <Route
-            path="/recipes"
-            render={routeProps => (
-              <YourRecipes
-                {...routeProps}
-                addRecipeToShoplist={this.addRecipeToShoplist}
-                products={this.state.products}
-                removeRecipeFromShoplist={this.removeRecipeFromShoplist}
-              />
-            )}
-          /> */}
+
           <Route
             path="/productsandrecipes"
             render={routeProps => (
