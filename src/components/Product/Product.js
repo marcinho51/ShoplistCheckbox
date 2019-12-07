@@ -10,12 +10,14 @@ class Product extends Component {
     input: true
   };
 
+  // quantity of the product when adding to shopping list
   handleChangeQuantity = event => {
     this.setState({
       quantity: event.target.value
     });
   };
 
+  // type of quantity of the product when adding to shopping list
   handleSelectQuantity = event => {
     this.setState({
       typeOfQuantity: event.target.value
@@ -72,7 +74,10 @@ class Product extends Component {
           <td className="removeFromYourProductsBtn">
             <button
               onClick={() =>
-                this.props.deleteItem(this.state.category, this.state.name)
+                this.props.deleteProductFromLocalStorage(
+                  this.state.category,
+                  this.state.name
+                )
               }
             >
               Remove from your products
@@ -85,8 +90,9 @@ class Product extends Component {
     const chosen = (
       <>
         <tr key={this.props.name}>
-          <td colspan="2" className="nameOfProduct">
-            {this.props.name} {this.state.quantity} {this.state.typeOfQuantity}
+          <td className="nameOfProduct">
+            {this.props.name} - {this.state.quantity}{" "}
+            {this.state.typeOfQuantity}
           </td>
 
           <td className="removeFromYourShoplistBtn">

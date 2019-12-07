@@ -7,6 +7,7 @@ class Recipe extends Component {
     ingredients: false
   };
 
+  // show or hide ingredients
   showIngredients = () => {
     this.setState(state => ({
       ingredients: !state.ingredients
@@ -55,40 +56,6 @@ class Recipe extends Component {
             <td id="nameOfTheRecipe">{this.props.name}</td>
           </tr>
           <tr className="showIngredients">
-            {/* </tr>
-
-          <tr> */}
-            {/* <td className="ingredientMain">Ingredients:</td>
-            <td className="ingredient">
-              {this.props.ingredient1.quantity}{" "}
-              {this.props.ingredient1.typeOfQuantity}{" "}
-              {this.props.ingredient1.product}
-            </td>
-            <td className="ingredient">
-              {this.props.ingredient2.quantity}{" "}
-              {this.props.ingredient2.typeOfQuantity}{" "}
-              {this.props.ingredient2.product}
-            </td>
-
-            <td className="ingredient">
-              {this.props.ingredient3.quantity}{" "}
-              {this.props.ingredient3.typeOfQuantity}{" "}
-              {this.props.ingredient3.product}
-            </td>
-
-            <td className="ingredient">
-              {this.props.ingredient4.quantity}{" "}
-              {this.props.ingredient4.typeOfQuantity}{" "}
-              {this.props.ingredient4.product}
-            </td>
-
-            <td className="ingredient">
-              {this.props.ingredient5.quantity}{" "}
-              {this.props.ingredient5.typeOfQuantity}{" "}
-              {this.props.ingredient5.product}
-            </td>
-          </tr>
-          <tr> */}
             <td>
               <button onClick={this.showIngredients}>
                 {this.state.ingredients
@@ -116,43 +83,16 @@ class Recipe extends Component {
             </td>
 
             <td className="removeRecipeBtn">
-              <button onClick={() => this.props.removeRecipe(this.props.name)}>
+              <button
+                onClick={() =>
+                  this.props.removeRecipeFromLocalStorage(this.props.name)
+                }
+              >
                 Remove from your recipes
               </button>
             </td>
           </tr>
           {this.state.ingredients ? ingredientsShow : null}
-          {/* <tr>
-            <td className="ingredientMain">Ingredients:</td>
-            <td className="ingredient">
-              {this.props.ingredient1.quantity}{" "}
-              {this.props.ingredient1.typeOfQuantity}{" "}
-              {this.props.ingredient1.product}
-            </td>
-            <td className="ingredient">
-              {this.props.ingredient2.quantity}{" "}
-              {this.props.ingredient2.typeOfQuantity}{" "}
-              {this.props.ingredient2.product}
-            </td>
-
-            <td className="ingredient">
-              {this.props.ingredient3.quantity}{" "}
-              {this.props.ingredient3.typeOfQuantity}{" "}
-              {this.props.ingredient3.product}
-            </td>
-
-            <td className="ingredient">
-              {this.props.ingredient4.quantity}{" "}
-              {this.props.ingredient4.typeOfQuantity}{" "}
-              {this.props.ingredient4.product}
-            </td>
-
-            <td className="ingredient">
-              {this.props.ingredient5.quantity}{" "}
-              {this.props.ingredient5.typeOfQuantity}{" "}
-              {this.props.ingredient5.product}
-            </td>
-          </tr> */}
         </tbody>
       </table>
     );
@@ -161,7 +101,7 @@ class Recipe extends Component {
       <table>
         <tbody>
           <tr>
-            <td className="nameOfTheRecipe">{this.props.name}</td>
+            <td id="nameOfTheRecipe">{this.props.name}</td>
           </tr>
           <tr>
             <td className="removeRecipeFromShoplistBtn">
@@ -182,11 +122,6 @@ class Recipe extends Component {
                 Remove from shopping list
               </button>
             </td>
-            {/* <td className="removeRecipeBtn">
-              <button onClick={() => this.props.removeRecipe(this.props.name)}>
-                Remove from your recipes
-              </button>
-            </td> */}
           </tr>
           <tr>
             <td className="ingredientMain">Ingredients:</td>

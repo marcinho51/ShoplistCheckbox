@@ -10,7 +10,7 @@ class NewRecipe extends Component {
           type="text"
           name="name"
           value={this.props.name}
-          onChange={this.props.handleDefineName}
+          onChange={this.props.nameOfTheRecipe}
           placeholder="Enter the name of the recipe"
         />
 
@@ -23,7 +23,7 @@ class NewRecipe extends Component {
                   placeholder="Enter ingredient's name"
                   type="text"
                   value={this.props.ingredient1.product}
-                  onChange={this.props.handleDefineIngredient}
+                  onChange={this.props.ingredientOfTheRecipe}
                 />
               </td>
               <td className="ingredientsQuantity">
@@ -31,7 +31,7 @@ class NewRecipe extends Component {
                   name="ingredient1"
                   type="number"
                   value={this.props.ingredient1.quantity}
-                  onChange={this.props.handleChangeQuantity}
+                  onChange={this.props.quantityOfTheIngredient}
                 />
               </td>
 
@@ -39,7 +39,7 @@ class NewRecipe extends Component {
                 <select
                   name="ingredient1"
                   value={this.props.ingredient1.typeOfQuantity}
-                  onChange={this.props.handleSelectQuantity}
+                  onChange={this.props.categoryOfTheIngredient}
                 >
                   <option>...</option>
                   <option value="items">items</option>
@@ -79,7 +79,7 @@ class NewRecipe extends Component {
                   name="ingredient2"
                   placeholder="Enter ingredient's name"
                   value={this.props.ingredient2.product}
-                  onChange={this.props.handleDefineIngredient}
+                  onChange={this.props.ingredientOfTheRecipe}
                 />
               </td>
               <td className="ingredientsQuantity">
@@ -87,7 +87,7 @@ class NewRecipe extends Component {
                   name="ingredient2"
                   type="number"
                   value={this.props.ingredient2.quantity}
-                  onChange={this.props.handleChangeQuantity}
+                  onChange={this.props.quantityOfTheIngredient}
                 />
               </td>
 
@@ -95,7 +95,7 @@ class NewRecipe extends Component {
                 <select
                   name="ingredient2"
                   value={this.props.ingredient2.typeOfQuantity}
-                  onChange={this.props.handleSelectQuantity}
+                  onChange={this.props.categoryOfTheIngredient}
                 >
                   <option>...</option>
                   <option value="items">items</option>
@@ -135,7 +135,7 @@ class NewRecipe extends Component {
                   name="ingredient3"
                   placeholder="Enter ingredient's name"
                   value={this.props.ingredient3.product}
-                  onChange={this.props.handleDefineIngredient}
+                  onChange={this.props.ingredientOfTheRecipe}
                 />
               </td>
               <td className="ingredientsQuantity">
@@ -143,7 +143,7 @@ class NewRecipe extends Component {
                   name="ingredient3"
                   type="number"
                   value={this.props.ingredient3.quantity}
-                  onChange={this.props.handleChangeQuantity}
+                  onChange={this.props.quantityOfTheIngredient}
                 />
               </td>
 
@@ -151,7 +151,7 @@ class NewRecipe extends Component {
                 <select
                   name="ingredient3"
                   value={this.props.ingredient3.typeOfQuantity}
-                  onChange={this.props.handleSelectQuantity}
+                  onChange={this.props.categoryOfTheIngredient}
                 >
                   <option>...</option>
                   <option value="items">items</option>
@@ -192,7 +192,7 @@ class NewRecipe extends Component {
                   name="ingredient4"
                   placeholder="Enter ingredient's name"
                   value={this.props.ingredient4.product}
-                  onChange={this.props.handleDefineIngredient}
+                  onChange={this.props.ingredientOfTheRecipe}
                 />
               </td>
               <td className="ingredientsQuantity">
@@ -200,7 +200,7 @@ class NewRecipe extends Component {
                   name="ingredient4"
                   type="number"
                   value={this.props.ingredient4.quantity}
-                  onChange={this.props.handleChangeQuantity}
+                  onChange={this.props.quantityOfTheIngredient}
                 />
               </td>
 
@@ -208,7 +208,7 @@ class NewRecipe extends Component {
                 <select
                   name="ingredient4"
                   value={this.props.ingredient4.typeOfQuantity}
-                  onChange={this.props.handleSelectQuantity}
+                  onChange={this.props.categoryOfTheIngredient}
                 >
                   <option>...</option>
                   <option value="items">items</option>
@@ -249,7 +249,7 @@ class NewRecipe extends Component {
                   name="ingredient5"
                   placeholder="Enter ingredient's name"
                   value={this.props.ingredient5.product}
-                  onChange={this.props.handleDefineIngredient}
+                  onChange={this.props.ingredientOfTheRecipe}
                 />
               </td>
               <td className="ingredientsQuantity">
@@ -257,7 +257,7 @@ class NewRecipe extends Component {
                   name="ingredient5"
                   type="number"
                   value={this.props.ingredient5.quantity}
-                  onChange={this.props.handleChangeQuantity}
+                  onChange={this.props.quantityOfTheIngredient}
                 />
               </td>
 
@@ -265,7 +265,7 @@ class NewRecipe extends Component {
                 <select
                   name="ingredient5"
                   value={this.props.ingredient5.typeOfQuantity}
-                  onChange={this.props.handleSelectQuantity}
+                  onChange={this.props.categoryOfTheIngredient}
                 >
                   <option>...</option>
                   <option value="items">items</option>
@@ -300,7 +300,9 @@ class NewRecipe extends Component {
             </tr>
             <tr>
               <td>
-                <button onClick={this.props.addRecipe}>Save your recipe</button>
+                <button onClick={this.props.addRecipeToLocalStorage}>
+                  Save your recipe
+                </button>
               </td>
             </tr>
           </tbody>

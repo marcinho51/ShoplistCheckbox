@@ -17,13 +17,15 @@ class YourRecipes extends Component {
     recipesFromLocalStorage: JSON.parse(localStorage.getItem("recipes"))
   };
 
-  handleDefineName = event => {
+  // name of the new recipe
+  nameOfTheRecipe = event => {
     this.setState({
       name: event.target.value
     });
   };
 
-  handleDefineIngredient = event => {
+  // ingredient of the new recipe
+  ingredientOfTheRecipe = event => {
     this.setState({
       [`${event.target.name}`]: {
         ...this.state[event.target.name],
@@ -32,7 +34,8 @@ class YourRecipes extends Component {
     });
   };
 
-  handleChangeQuantity = event => {
+  // quantity of the ingredient from the new recipe
+  quantityOfTheIngredient = event => {
     this.setState({
       [`${event.target.name}`]: {
         ...this.state[event.target.name],
@@ -41,7 +44,8 @@ class YourRecipes extends Component {
     });
   };
 
-  handleSelectQuantity = event => {
+  // type of quantity of the ingredient from the new recipe
+  typeOfQuantityOfTheIngredient = event => {
     this.setState({
       [event.target.name]: {
         ...this.state[event.target.name],
@@ -50,7 +54,8 @@ class YourRecipes extends Component {
     });
   };
 
-  selectChange = event => {
+  // category of the ingredient from the new recipe
+  categoryOfTheIngredient = event => {
     this.setState({
       [`${event.target.name}`]: {
         ...this.state[event.target.name],
@@ -59,7 +64,8 @@ class YourRecipes extends Component {
     });
   };
 
-  removeRecipe = name => {
+  // remove recipe from local storage
+  removeRecipeFromLocalStorage = name => {
     let arr = JSON.parse(localStorage.getItem("recipes"));
     let arr2 = arr.filter(item => item.name !== name);
     localStorage.setItem("recipes", JSON.stringify(arr2));
@@ -69,7 +75,8 @@ class YourRecipes extends Component {
     });
   };
 
-  addRecipe = () => {
+  // add recipe to local storage
+  addRecipeToLocalStorage = () => {
     let recipes = JSON.parse(localStorage.getItem("recipes") || "[]");
     let recipe = {
       name: this.state.name,
@@ -162,15 +169,11 @@ class YourRecipes extends Component {
 
   render() {
     return (
-      // <div className="wrapper">
-      //   <div className="row">
       <>
         <div className="yourRecipes col-6">
           <h1 id="yourRecipesHeadline">Your Recipes</h1>
           {localStorage.getItem("recipes") ? (
             <>
-              {/* <table>
-                  <tbody> */}
               {JSON.parse(localStorage.getItem("recipes")).map(item => (
                 <Recipe
                   name={item.name}
@@ -182,36 +185,31 @@ class YourRecipes extends Component {
                   ingredient5={item.ingredient5}
                   addRecipeToShoplist={this.props.addRecipeToShoplist}
                   removeRecipeFromShoplist={this.props.removeRecipeFromShoplist}
-                  removeRecipe={this.removeRecipe}
+                  removeRecipeFromLocalStorage={
+                    this.removeRecipeFromLocalStorage
+                  }
                 />
               ))}
-              {/* </tbody>
-                </table> */}
             </>
           ) : null}
-          {/* </div> */}
-          {/* <div className="row"> */}
-          {/* <div className="col-6"> */}
+
           <h1 id="addNewRecipeHeadline">Add new recipe</h1>
           <NewRecipe
-            handleDefineName={this.handleDefineName}
-            handleDefineIngredient={this.handleDefineIngredient}
-            handleChangeQuantity={this.handleChangeQuantity}
-            handleSelectQuantity={this.handleSelectQuantity}
-            selectChange={this.selectChange}
+            nameOfTheRecipe={this.nameOfTheRecipe}
+            ingredientOfTheRecipe={this.ingredientOfTheRecipe}
+            quantityOfTheIngredient={this.quantityOfTheIngredient}
+            typeOfQuantityOfTheIngredient={this.typeOfQuantityOfTheIngredient}
+            categoryOfTheIngredient={this.categoryOfTheIngredient}
             ingredient1={this.state.ingredient1}
             ingredient2={this.state.ingredient2}
             ingredient3={this.state.ingredient3}
             ingredient4={this.state.ingredient4}
             ingredient5={this.state.ingredient5}
             name={this.state.name}
-            addRecipe={this.addRecipe}
+            addRecipeToLocalStorage={this.addRecipeToLocalStorage}
           />
         </div>
-        {/* </div> */}
       </>
-
-      // </div>
     );
   }
 }

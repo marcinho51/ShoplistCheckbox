@@ -3,18 +3,11 @@ import "./NewShoplist.scss";
 
 class NewShoplist extends Component {
   state = {
-    shoplist: false,
     products: this.props.products
   };
 
-  createShoplist = () => {
-    this.setState({
-      shoplist: true,
-      products: this.props.products
-    });
-  };
-
-  deleteItemFromShoplist = (event, name, typeOfQuantity) => {
+  // remove product from shopping list
+  deleteItemFromShoppinglist = (event, name, typeOfQuantity) => {
     if (event.target.checked) {
       let listOfProducts = [...this.state.products];
 
@@ -63,7 +56,7 @@ class NewShoplist extends Component {
                       <td>
                         <input
                           onChange={event =>
-                            this.deleteItemFromShoplist(
+                            this.deleteItemFromShoppinglist(
                               event,
                               item.product,
                               item.typeOfQuantity

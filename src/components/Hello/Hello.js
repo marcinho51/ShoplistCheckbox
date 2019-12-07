@@ -3,8 +3,30 @@ import "./Hello.scss";
 import { Link } from "react-router-dom";
 
 class Hello extends Component {
+  state = {
+    user: ""
+  };
+
+  // name of user
+  nameOfUser = event => {
+    this.setState({
+      user: event.target.value
+    });
+  };
+
+  // saving name of user to local storage
+  userToLocalStorage = () => {
+    const { user } = this.state;
+    localStorage.setItem("user", user);
+    this.setState({
+      user: ""
+    });
+  };
+
   render() {
     const userFromLocalStorage = localStorage.getItem("user");
+
+    // first entry on the app
     const firstEntry = (
       <div className="first-entry">
         <h3>Hello,</h3>
@@ -17,20 +39,20 @@ class Hello extends Component {
             id="userName"
             type="text"
             placeholder="Enter your name "
-            onChange={this.props.change}
-            value={this.props.user}
+            onChange={this.nameOfUser}
+            value={this.state.user}
           />
           <input
             id="userNameButton"
-            class="button"
             type="button"
             value="Gotowe!"
-            onClick={this.props.buttonChange}
+            onClick={this.userToLocalStorage}
           />
         </div>
       </div>
     );
 
+    // not-first entry on the app
     const secondEntry = (
       <div className="second-entry">
         <h1>Hello {userFromLocalStorage}!</h1>

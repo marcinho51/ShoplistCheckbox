@@ -9,7 +9,7 @@ class NewProduct extends Component {
           <td>
             <input
               type="text"
-              onChange={this.props.change}
+              onChange={this.props.nameOfTheProduct}
               value={this.props.newProduct}
               name="newProduct"
               placeholder="Enter new product's name"
@@ -17,7 +17,7 @@ class NewProduct extends Component {
 
             <select
               value={this.props.select}
-              onChange={this.props.selectChange}
+              onChange={this.props.productsCategory}
             >
               <option>...</option>
               <option value="fruitsAndVegs">Fruits and vegetables</option>
@@ -41,7 +41,7 @@ class NewProduct extends Component {
         </tr>
         <tr className="newProductBtn">
           <td>
-            <button onClick={this.props.handleButton}>Add</button>
+            <button onClick={this.props.addProductToLocalStorage}>Add</button>
           </td>
         </tr>
       </>

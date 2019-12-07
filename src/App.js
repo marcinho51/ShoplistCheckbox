@@ -3,31 +3,15 @@ import { HashRouter, Route, Switch } from "react-router-dom";
 import "./App.scss";
 import Main from "./components/Main/Main";
 import Hello from "./components/Hello/Hello";
-// import YourRecipes from "./components/YourRecipes/YourRecipes";
-// import YourProducts from "./components/YourProducts/YourProducts";
+
 import NewShoplist from "./components/NewShoplist/NewShoplist";
-import Navigation from "./components/Navigation/Navigation";
 
 class App extends Component {
   state = {
-    user: "",
     products: []
   };
 
-  handleChange = event => {
-    this.setState({
-      user: event.target.value
-    });
-  };
-
-  handleButton = () => {
-    const { user } = this.state;
-    localStorage.setItem("user", user);
-    this.setState({
-      user: ""
-    });
-  };
-
+  // adding recipe to shopping list
   addRecipeToShoplist = (
     ingredient1,
     ingredient2,
@@ -101,6 +85,7 @@ class App extends Component {
     });
   };
 
+  // adding product to shopping list
   addProductToShoplist = (name, category, quantity, typeOfQuantity) => {
     let listOfProducts = [...this.state.products];
 
@@ -153,6 +138,7 @@ class App extends Component {
     });
   };
 
+  // removing product from shopping list
   removeProductFromShoplist = (name, category, quantity, typeOfQuantity) => {
     let listOfProducts = [...this.state.products];
 
@@ -190,6 +176,7 @@ class App extends Component {
 
   arrayOfIngredients = [];
 
+  // removing recipe from shopping list
   removeRecipeFromShoplist = (
     ingredient1,
     ingredient2,
@@ -269,21 +256,8 @@ class App extends Component {
   render() {
     return (
       <HashRouter>
-        {/* <Navigation /> */}
         <Switch>
-          <Route
-            exact
-            path="/"
-            render={routeProps => (
-              <Hello
-                {...routeProps}
-                user={this.state.user}
-                change={this.handleChange}
-                buttonChange={this.handleButton}
-              />
-            )}
-          />
-
+          <Route exact path="/" render={routeProps => <Hello />} />
           <Route
             path="/productsandrecipes"
             render={routeProps => (

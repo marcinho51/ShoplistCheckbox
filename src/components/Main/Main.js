@@ -5,11 +5,6 @@ import YourRecipes from "../YourRecipes/YourRecipes";
 import YourProducts from "../YourProducts/YourProducts";
 
 class Main extends Component {
-  state = {
-    user: "",
-    products: []
-  };
-
   render() {
     return (
       <div className="wrapper2">
