@@ -1,68 +1,11 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Shopping List
 
-## Available Scripts
+This is shopping list application, that was created with React Create App. In this application I used: React, SASS and localStorage.
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+1. The aim of this application is to create shopping list. Shopping list is generated from products and recipes that you choose.
+2. First you have to add products that you usually buy to Your Products. You have to enter the name of each product and choose its category. All products will be saved in localStorage.
+3. Then you can also add cooking recipes with necessary ingredients in Your Recipes. They will be also saved in localStorage.
+4. You can remove every product from Your Products (and localStorage) by clicking `Remove from your products` button. You can do the same with your recipes by clicking `Remove from your recipes` button.
+5. Finally you can create your shopping list. If you want to add to your shopping list product, you have to enter its quantity and type of quantity (kg or items) and click `Add to shopping list` button. If you change your mind, you can remove any product from your shopping list by clicking `Remove from shopping list` button.
+6. This application is adding quantities of the same products. For example: if you add to your shopping list product: 2 kg of tomatoes and add recipe "tomato soup" that contains 1 kg of tomatoes, shopping list will show "tomatoes - 3 kg". It works the same with the subtracting.
+7. When you're sure that you added all products that you need, you have to click `Create your shopping list` button - then you will see your shopping list: list of the products that you've chosen. When you're in supermarket and you put product from shopping list in your shopping basket, you can click the checkbox input and the product will be removed from your list.
