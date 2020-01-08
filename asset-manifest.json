@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/ShoplistCheckbox/static/css/main.a90489cf.chunk.css",
+    "main.js": "/ShoplistCheckbox/static/js/main.89f15063.chunk.js",
+    "main.js.map": "/ShoplistCheckbox/static/js/main.89f15063.chunk.js.map",
+    "runtime-main.js": "/ShoplistCheckbox/static/js/runtime-main.d6213440.js",
+    "runtime-main.js.map": "/ShoplistCheckbox/static/js/runtime-main.d6213440.js.map",
+    "static/js/2.5ee8621e.chunk.js": "/ShoplistCheckbox/static/js/2.5ee8621e.chunk.js",
+    "static/js/2.5ee8621e.chunk.js.map": "/ShoplistCheckbox/static/js/2.5ee8621e.chunk.js.map",
+    "index.html": "/ShoplistCheckbox/index.html",
+    "precache-manifest.a213311585cb8c8a6c7b5bbb0e1e411a.js": "/ShoplistCheckbox/precache-manifest.a213311585cb8c8a6c7b5bbb0e1e411a.js",
+    "service-worker.js": "/ShoplistCheckbox/service-worker.js",
+    "static/css/main.a90489cf.chunk.css.map": "/ShoplistCheckbox/static/css/main.a90489cf.chunk.css.map",
+    "static/media/Hello.scss": "/ShoplistCheckbox/static/media/food2.9af0a57c.jpg",
+    "static/media/img1.jpg": "/ShoplistCheckbox/static/media/img1.6e351861.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d6213440.js",
+    "static/js/2.5ee8621e.chunk.js",
+    "static/css/main.a90489cf.chunk.css",
+    "static/js/main.89f15063.chunk.js"
+  ]
+}
