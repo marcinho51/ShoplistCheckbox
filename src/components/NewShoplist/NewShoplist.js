@@ -84,7 +84,7 @@ class NewShoplist extends Component {
         <div className="row">
           <div className="newShoplist col-12">
             <h1>Shopping done, congratulations :)</h1>
-            <img src={require("../../images/img1.jpg")} />
+            <img src={require("../../images/img1.jpg")} alt="Shopping done" />
           </div>
         </div>
       </div>

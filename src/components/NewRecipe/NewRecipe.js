@@ -39,7 +39,7 @@ class NewRecipe extends Component {
                 <select
                   name="ingredient1"
                   value={this.props.ingredient1.typeOfQuantity}
-                  onChange={this.props.categoryOfTheIngredient}
+                  onChange={this.props.typeOfQuantityOfTheIngredient}
                 >
                   <option>...</option>
                   <option value="items">items</option>
@@ -50,7 +50,7 @@ class NewRecipe extends Component {
                 <select
                   name="ingredient1"
                   value={this.props.ingredient1.category}
-                  onChange={this.props.selectChange}
+                  onChange={this.props.categoryOfTheIngredient}
                 >
                   <option>...</option>
                   <option value="fruitsAndVegs">Fruits and vegetables</option>
@@ -95,7 +95,7 @@ class NewRecipe extends Component {
                 <select
                   name="ingredient2"
                   value={this.props.ingredient2.typeOfQuantity}
-                  onChange={this.props.categoryOfTheIngredient}
+                  onChange={this.props.typeOfQuantityOfTheIngredient}
                 >
                   <option>...</option>
                   <option value="items">items</option>
@@ -106,7 +106,7 @@ class NewRecipe extends Component {
                 <select
                   name="ingredient2"
                   value={this.props.ingredient2.category}
-                  onChange={this.props.selectChange}
+                  onChange={this.props.categoryOfTheIngredient}
                 >
                   <option>...</option>
                   <option value="fruitsAndVegs">Fruits and vegetables</option>
@@ -151,7 +151,7 @@ class NewRecipe extends Component {
                 <select
                   name="ingredient3"
                   value={this.props.ingredient3.typeOfQuantity}
-                  onChange={this.props.categoryOfTheIngredient}
+                  onChange={this.props.typeOfQuantityOfTheIngredient}
                 >
                   <option>...</option>
                   <option value="items">items</option>
@@ -162,7 +162,7 @@ class NewRecipe extends Component {
                 <select
                   name="ingredient3"
                   value={this.props.ingredient3.category}
-                  onChange={this.props.selectChange}
+                  onChange={this.props.categoryOfTheIngredient}
                 >
                   <option>...</option>
                   <option value="fruitsAndVegs">Fruits and vegetables</option>
@@ -208,7 +208,7 @@ class NewRecipe extends Component {
                 <select
                   name="ingredient4"
                   value={this.props.ingredient4.typeOfQuantity}
-                  onChange={this.props.categoryOfTheIngredient}
+                  onChange={this.props.typeOfQuantityOfTheIngredient}
                 >
                   <option>...</option>
                   <option value="items">items</option>
@@ -219,7 +219,7 @@ class NewRecipe extends Component {
                 <select
                   name="ingredient4"
                   value={this.props.ingredient4.category}
-                  onChange={this.props.selectChange}
+                  onChange={this.props.categoryOfTheIngredient}
                 >
                   <option>...</option>
                   <option value="fruitsAndVegs">Fruits and vegetables</option>
@@ -265,7 +265,7 @@ class NewRecipe extends Component {
                 <select
                   name="ingredient5"
                   value={this.props.ingredient5.typeOfQuantity}
-                  onChange={this.props.categoryOfTheIngredient}
+                  onChange={this.props.typeOfQuantityOfTheIngredient}
                 >
                   <option>...</option>
                   <option value="items">items</option>
@@ -276,7 +276,7 @@ class NewRecipe extends Component {
                 <select
                   name="ingredient5"
                   value={this.props.ingredient5.category}
-                  onChange={this.props.selectChange}
+                  onChange={this.props.categoryOfTheIngredient}
                 >
                   <option>...</option>
                   <option value="fruitsAndVegs">Fruits and vegetables</option>
