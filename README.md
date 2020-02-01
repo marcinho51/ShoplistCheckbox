@@ -1,6 +1,8 @@
 # Shopping List
 
-This is shopping list application, that was created with React Create App. In this application I used: React, SASS and localStorage.
+This is shopping list application, that was created with React Create App. In this application I used: React, React Router, SASS and localStorage.
+
+[Link to a website](https://marcinho51.github.io/ShoplistCheckbox/)
 
 1. The aim of this application is to create shopping list. Shopping list is generated from products and recipes that you choose.
 2. First you have to add products that you usually buy to Your Products. You have to enter the name of each product and choose its category. All products will be saved in localStorage.
